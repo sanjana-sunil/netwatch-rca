@@ -1,7 +1,7 @@
 # netwatch-rca
 An intelligent network fault diagnosis system that uses real-time telemetry, anomaly detection, and probabilistic reasoning to identify network faults and rank their likely root causes.
 
-# features
+# Features
 1. Network Telemetry Collection: Monitor network performance metrics such as latency, packet loss, throughput, and interface statistics.
 2. Automated Anomaly Detection: Identify abnormal network behavior using threshold-based rules and machine learning.
 3. Fault Classification: Categorize network faults based on observed telemetry patterns.
@@ -9,7 +9,7 @@ An intelligent network fault diagnosis system that uses real-time telemetry, ano
 5. Fault Injection and Validation: Simulate network failures and congestion in Mininet to evaluate diagnostic accuracy.
 6. Visualized Diagnostics: Display network metrics, detected anomalies, and ranked root causes through a dashboard.
 
-# tech stack
+# Tech Stack
 1. Ubuntu Linux — Project execution environment.
 2. Mininet + Open vSwitch — Simulate network topologies and traffic.
 3. Python — Implement telemetry processing, anomaly detection, and diagnosis logic.
