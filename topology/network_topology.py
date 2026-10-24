@@ -4,7 +4,7 @@ from mininet.node import OVSSwitch
 from mininet.cli import CLI
 from mininet.log import setLogLevel, info
 def create_topology():
-    net = Mininet(controller=None, switch = OVSSwitch)
+    net = Mininet(controller = None, switch = OVSSwitch)
     info("***adding switches***\n")
     s1 = net.addSwitch("Switch1")
     s2 = net.addSwitch("Switch2")
@@ -21,12 +21,4 @@ def create_topology():
     net.addLink(h4, s2)
     info("***starting network***\n")
     net.start()
-    info("***testing connectivity***\n")
-    net.pingAll()
-    info("***Entering Mininet CLI***\n")
-    CLI(net)
-    info("***stopping the network***\n")
-    net.stop()
-if __name__ == "__main__":
-    setLogLevel("info")
-    create_topology()
+    return net
