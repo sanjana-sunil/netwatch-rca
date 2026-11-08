@@ -166,6 +166,7 @@ def collect_host_interface_metrics(net, experiment_id, mode, fault_type):
 
     return rows
 
+
 def collect_switch_port_metrics(net, experiment_id, mode, fault_type):
     rows = []
 
@@ -178,27 +179,68 @@ def collect_switch_port_metrics(net, experiment_id, mode, fault_type):
 
         for port in output.splitlines():
             port = port.strip()
+
             if not port:
                 continue
 
+            # 1. Collect switch interface counters
+            for metric_name, (counter_name, unit) in INTERFACE_COUNTERS.items():
+
+                command = (
+                    f"cat /sys/class/net/{port}/statistics/"
+                    f"{counter_name}"
+                )
+
+                output = switch.cmd(command).strip()
+
+                try:
+                    value = int(output)
+                except ValueError:
+                    value = None
+
+            
+
+            # 2. Collect administrative interface status
             status_output = switch.cmd(
                 f"ip -o link show dev {port}"
             )
 
             match = re.search(r"<([^>]*)>", status_output)
 
-            if match:
-                status = int("UP" in match.group(1).split())
-            else:
-                status = None
+            admin_status = (
+                int("UP" in match.group(1).split())
+                if match
+                else None
+            )
 
             rows.append(
                 make_row(
                     entity_type="switch_port",
                     entity_name=f"{switch_name}:{port}",
-                    metric_name="port_status",
-                    value=status,
+                    metric_name="admin_status",
+                    value=admin_status,
                     unit="boolean",
+                    interface=port,
+                    experiment_id=experiment_id,
+                    mode=mode,
+                    fault_type=fault_type,
+                )
+            )
+
+            # 3. Collect operational interface status
+            oper_output = switch.cmd(
+                f"cat /sys/class/net/{port}/operstate"
+            ).strip()
+
+            oper_status = oper_output if oper_output else None
+
+            rows.append(
+                make_row(
+                    entity_type="switch_port",
+                    entity_name=f"{switch_name}:{port}",
+                    metric_name="oper_status",
+                    value=oper_status,
+                    unit="state",
                     interface=port,
                     experiment_id=experiment_id,
                     mode=mode,
@@ -208,13 +250,13 @@ def collect_switch_port_metrics(net, experiment_id, mode, fault_type):
 
     return rows
 
+
 def read_cpu_counters(host):
     output = host.cmd("cat /proc/stat")
     first_line = output.splitlines()[0].split()
 
     values = [int(value) for value in first_line[1:]]
     total = sum(values)
-
     # Linux CPU counters: user, nice, system, idle, iowait, etc.
     idle = values[3] + (values[4] if len(values) > 4 else 0)
 
