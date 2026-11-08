@@ -1,8 +1,7 @@
 from mininet.cli import CLI
 from mininet.log import setLogLevel
 from topology.network_topology import create_topology
-from telemetry.collect_ping import collect_metrics
-
+from telemetry.collect_metrics import collect_metrics
 def main():
     net = create_topology()
     try:
@@ -10,7 +9,7 @@ def main():
             net.get(switch).cmd(
                     f"ovs-vsctl set-fail-mode {switch} standalone"
             )
-        collect_metrics(net, duration = 30)
+        collect_metrics(net, duration = 30, mode = "baseline")
         CLI(net)
     except KeyboardInterrupt:
         print("Telemetry collection has stopped\n")
