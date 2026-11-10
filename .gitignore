@@ -9,3 +9,4 @@ __pycache__/
 #Editor & Operating System Files
 .vscode/
 .DS_STORE
+data/baseline_backup.csv
