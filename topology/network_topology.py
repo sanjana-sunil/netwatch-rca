@@ -4,7 +4,13 @@ from mininet.node import OVSSwitch
 from mininet.cli import CLI
 from mininet.log import setLogLevel, info
 def create_topology():
-    net = Mininet(controller = None, switch = OVSSwitch)
+    from mininet.link import TCLink
+
+    net = Mininet(
+        controller=None,
+        switch=OVSSwitch,
+        link=TCLink
+    )
     info("***adding switches***\n")
     s1 = net.addSwitch("Switch1")
     s2 = net.addSwitch("Switch2")
@@ -14,11 +20,11 @@ def create_topology():
     h3 = net.addHost("Host3", ip = "10.0.0.3/24")
     h4 = net.addHost("Host4", ip = "10.0.0.4/24")
     info("***creating links***\n")
-    net.addLink(h1, s1)
-    net.addLink(h2, s1)
-    net.addLink(s1, s2)
-    net.addLink(h3, s2)
-    net.addLink(h4, s2)
+    net.addLink(h1, s1, bw = 50)
+    net.addLink(h2, s1, bw = 50)
+    net.addLink(s1, s2, bw = 50)
+    net.addLink(h3, s2, bw = 50)
+    net.addLink(h4, s2, bw = 50)
     info("***starting network***\n")
     net.start()
     return net

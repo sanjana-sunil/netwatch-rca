@@ -9,7 +9,7 @@ def main():
             net.get(switch).cmd(
                     f"ovs-vsctl set-fail-mode {switch} standalone"
             )
-        collect_metrics(net, duration = 30, mode = "baseline")
+        collect_metrics(net, duration = 180, mode = "baseline")
         CLI(net)
     except KeyboardInterrupt:
         print("Telemetry collection has stopped\n")
