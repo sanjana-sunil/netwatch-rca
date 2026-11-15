@@ -299,9 +299,14 @@ def collect_host_interface_metrics(net, experiment_id, mode, fault_type):
             match = re.search(r"<([^>]*)>", output)
 
             is_up = (
-                int("UP" in match.group(1).split())
+                int("LOWER_UP" in match.group(1).split(","))
                 if match
                 else None
+            )
+            print(
+                f"DEBUG: {host.name} | "
+                f"Interface: {interface} | "
+                f"link_status: {is_up}"
             )
 
             rows.append(
@@ -694,6 +699,7 @@ def collect_metrics(
     duration=30,
     mode="baseline",
     fault_type="",
+    experiment_id=None,
 ):
 
     if mode not in ("baseline", "experiment"):
@@ -708,11 +714,12 @@ def collect_metrics(
         else PROJECT_ROOT / "data" / "experiments.csv"
     )
 
-    experiment_id = (
-        datetime.now().strftime("%Y%m%d_%H%M%S")
-        + "_"
-        + uuid.uuid4().hex[:6]
-    )
+    if experiment_id is None:
+        experiment_id = (
+            datetime.now().strftime("%Y%m%d_%H%M%S")
+            + "_"
+            + uuid.uuid4().hex[:6]
+        )
 
     print(f"Starting {mode} telemetry collection.")
     print(f"Output: {csv_file}")
@@ -785,7 +792,7 @@ def collect_metrics(
 
                 time.sleep(
                     min(INTERVAL, remaining)
-                )
+                    )
             # 6. Collect throughput after regular telemetry collection.
         print("\nStarting throughput measurements...")
 
@@ -803,5 +810,6 @@ def collect_metrics(
         )
 
     except KeyboardInterrupt:
-
         print("\nTelemetry collection interrupted.")
+        return experiment_id, "interrupted"
+    return experiment_id, "completed"
