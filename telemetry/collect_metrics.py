@@ -702,17 +702,19 @@ def collect_metrics(
     experiment_id=None,
 ):
 
-    if mode not in ("baseline", "experiment"):
-
+    if mode not in ("baseline", "loaded_baseline", "experiment"):
         raise ValueError(
-            "mode must be 'baseline' or 'experiment'"
+            "mode must be 'baseline', "
+            "'loaded_baseline' or 'experiment'"
         )
 
-    csv_file = (
-        PROJECT_ROOT / "data" / "baseline.csv"
-        if mode == "baseline"
-        else PROJECT_ROOT / "data" / "experiments.csv"
-    )
+    output_files = {
+        "baseline": PROJECT_ROOT / "data" / "baseline.csv",
+        "loaded_baseline": PROJECT_ROOT / "data" / "loaded_baseline.csv",
+        "experiment": PROJECT_ROOT / "data" / "experiments.csv",
+    }
+
+    csv_file = output_files[mode]
 
     if experiment_id is None:
         experiment_id = (
@@ -793,21 +795,23 @@ def collect_metrics(
                 time.sleep(
                     min(INTERVAL, remaining)
                     )
-            # 6. Collect throughput after regular telemetry collection.
-        print("\nStarting throughput measurements...")
+        
+            if mode != "loaded_baseline":
 
-        throughput_rows = collect_throughput_metrics(
-            net,
-            experiment_id,
-            mode,
-            fault_type,
-        )
+                print("\nStarting throughput measurements...")
 
-        append_measurements(csv_file, throughput_rows)
+                throughput_rows = collect_throughput_metrics(
+                    net,
+                    experiment_id,
+                    mode,
+                    fault_type,
+                )   
 
-        print(
-            f"Saved {len(throughput_rows)} throughput measurements."
-        )
+                append_measurements(csv_file, throughput_rows)
+
+                print(
+                    f"Saved {len(throughput_rows)} throughput measurements."
+                )
 
     except KeyboardInterrupt:
         print("\nTelemetry collection interrupted.")
