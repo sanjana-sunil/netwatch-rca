@@ -702,16 +702,22 @@ def collect_metrics(
     experiment_id=None,
 ):
 
-    if mode not in ("baseline", "loaded_baseline", "experiment"):
+    if mode not in (
+    "baseline",
+    "loaded_baseline",
+    "udp_baseline",
+    "experiment"
+    ):
         raise ValueError(
             "mode must be 'baseline', "
             "'loaded_baseline' or 'experiment'"
         )
 
     output_files = {
-        "baseline": PROJECT_ROOT / "data" / "baseline.csv",
-        "loaded_baseline": PROJECT_ROOT / "data" / "loaded_baseline.csv",
-        "experiment": PROJECT_ROOT / "data" / "experiments.csv",
+    "baseline": PROJECT_ROOT / "data" / "baseline.csv",
+    "loaded_baseline": PROJECT_ROOT / "data" / "loaded_baseline.csv",
+    "udp_baseline": PROJECT_ROOT / "data" / "udp_baseline.csv",
+    "experiment": PROJECT_ROOT / "data" / "experiments.csv",
     }
 
     csv_file = output_files[mode]
@@ -796,7 +802,7 @@ def collect_metrics(
                     min(INTERVAL, remaining)
                     )
         
-            if mode != "loaded_baseline":
+            if mode not in ("loaded_baseline", "udp_baseline"):
 
                 print("\nStarting throughput measurements...")
 

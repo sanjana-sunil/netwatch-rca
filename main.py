@@ -9,6 +9,8 @@ from telemetry.collect_metrics import collect_metrics
 
 DURATION = 180
 
+UDP_BITRATE = "5M"
+
 TRAFFIC_PAIRS = [
     ("Host1", "Host2", 5202),
     ("Host3", "Host4", 5203),
@@ -54,6 +56,8 @@ def start_background_traffic(net):
                     "iperf3",
                     "-c", destination.IP(),
                     "-p", str(port),
+                    "-u",
+                    "-b", UDP_BITRATE,
                     "-t", str(DURATION + 30),
                     "-i", "1",
                 ],
@@ -124,7 +128,7 @@ def main():
         experiment_id, status = collect_metrics(
             net,
             duration=DURATION,
-            mode="loaded_baseline",
+            mode="udp_baseline",
             fault_type=""
         )
 
