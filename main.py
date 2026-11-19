@@ -1,165 +1,239 @@
-
-import subprocess
+import argparse
 import time
-from pathlib import Path
+import uuid
+from datetime import datetime
 
 from topology.network_topology import create_topology
 from telemetry.collect_metrics import collect_metrics
+from scripts.generate_traffic import (
+    start_background_traffic,
+    stop_background_traffic,
+)
+from scripts.inject_faults import (
+    inject_inter_switch_link_failure,
+    restore_inter_switch_link,
+    inject_high_latency,
+    restore_high_latency,
+    inject_packet_loss,
+    restore_packet_loss,
+    inject_bandwidth_limitation,
+    restore_bandwidth_limitation,
+    log_experiment,
+)
+
+TRAFFIC_CONDITIONS = ("idle", "tcp", "udp")
+
+FAULTS = {
+    "inter_switch_link_failure": (
+        inject_inter_switch_link_failure,
+        restore_inter_switch_link,
+        "Switch1-Switch2",
+        "Disable the inter-switch link",
+    ),
+    "high_latency": (
+        inject_high_latency,
+        restore_high_latency,
+        "Switch1-eth3 and Switch2-eth1",
+        "100 ms delay with 10 ms jitter",
+    ),
+    "packet_loss": (
+        inject_packet_loss,
+        restore_packet_loss,
+        "Switch1-eth3 and Switch2-eth1",
+        "10 percent packet loss",
+    ),
+    "bandwidth_limitation": (
+        inject_bandwidth_limitation,
+        restore_bandwidth_limitation,
+        "Switch1-eth3 and Switch2-eth1",
+        "Reduce inter-switch bandwidth from 50 Mbps to 5 Mbps",
+    ),
+}
+
+BASELINE_MODES = {
+    "idle": "baseline",
+    "tcp": "loaded_baseline",
+    "udp": "udp_baseline",
+}
 
 
-DURATION = 180
-
-UDP_BITRATE = "5M"
-
-TRAFFIC_PAIRS = [
-    ("Host1", "Host2", 5202),
-    ("Host3", "Host4", 5203),
-    ("Host1", "Host3", 5204),
-]
+def make_experiment_id():
+    return datetime.now().strftime("%Y%m%d_%H%M%S") + "_" + uuid.uuid4().hex[:6]
 
 
-def start_background_traffic(net):
+def configure_switches(net):
+    for switch in net.switches:
+        switch.cmd(
+            f"ovs-vsctl set-fail-mode {switch.name} standalone"
+        )
 
-    servers = []
-    clients = []
 
-    hosts = {
-        host.name: host
-        for host in net.hosts
-    }
+def run_baselines(net, duration):
+    for condition in TRAFFIC_CONDITIONS:
+        servers, clients = start_background_traffic(net, condition, duration)
+        try:
+            print(f"\nCollecting {condition.upper()} healthy baseline...")
+            experiment_id, status = collect_metrics(
+                net,
+                duration=duration,
+                mode=BASELINE_MODES[condition],
+                fault_type="",
+                traffic_condition=condition,
+            )
+            print(
+                f"Baseline complete: condition={condition}, "
+                f"id={experiment_id}, status={status}"
+            )
+        finally:
+            stop_background_traffic(servers, clients)
+            time.sleep(2)
+
+
+def run_one_fault_experiment(net, fault_type, condition, duration):
+    inject, restore, target, description = FAULTS[fault_type]
+    servers, clients = start_background_traffic(net, condition, duration)
+
+    experiment_id = make_experiment_id()
+    start_time = datetime.now().isoformat(timespec="seconds")
+    status = "failed"
+    injected = False
+    error_message = ""
 
     try:
-        # Start iperf3 servers on destination hosts.
-        for source_name, destination_name, port in TRAFFIC_PAIRS:
+        print(
+            f"\n=== Fault: {fault_type} | "
+            f"Traffic: {condition.upper()} ==="
+        )
 
-            destination = hosts[destination_name]
+        inject(net)
+        injected = True
 
-            server = destination.popen(
-                ["iperf3", "-s", "-p", str(port)],
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-            )
+        returned_id, collection_status = collect_metrics(
+            net,
+            duration=duration,
+            mode="experiment",
+            fault_type=fault_type,
+            experiment_id=experiment_id,
+            traffic_condition=condition,
+        )
+        experiment_id = returned_id
+        status = collection_status
+        if collection_status == "interrupted":
+            raise KeyboardInterrupt
 
-            servers.append(server)
-
-        # Allow servers to initialize.
-        time.sleep(2)
-
-        # Start all traffic flows concurrently.
-        for source_name, destination_name, port in TRAFFIC_PAIRS:
-
-            source = hosts[source_name]
-            destination = hosts[destination_name]
-
-            client = source.popen(
-                [
-                    "iperf3",
-                    "-c", destination.IP(),
-                    "-p", str(port),
-                    "-u",
-                    "-b", UDP_BITRATE,
-                    "-t", str(DURATION + 30),
-                    "-i", "1",
-                ],
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-            )
-
-            clients.append(client)
-
-        print("\nBackground traffic started successfully.")
-
-        return servers, clients
-
-    except Exception:
-        stop_background_traffic(servers, clients)
+    except KeyboardInterrupt:
+        status = "interrupted"
         raise
 
+    except Exception as error:
+        error_message = str(error)
+        status = "failed"
+        print(f"Experiment failed: {error}")
 
-def stop_background_traffic(servers, clients):
-
-    print("\nStopping background traffic...")
-
-    for process in clients + servers:
-
-        if process.poll() is None:
-            process.terminate()
-
+    finally:
+        if injected:
             try:
-                process.wait(timeout=3)
-            except subprocess.TimeoutExpired:
-                process.kill()
-                process.wait()
+                restore(net)
+            except Exception as restore_error:
+                status = "restore_failed"
+                error_message = (
+                    f"{error_message}; restoration error: {restore_error}"
+                    if error_message else str(restore_error)
+                )
+                print(f"WARNING: fault restoration failed: {restore_error}")
 
-    print("Background traffic stopped.")
+        stop_background_traffic(servers, clients)
+        end_time = datetime.now().isoformat(timespec="seconds")
+
+        log_experiment(
+            experiment_id=experiment_id,
+            fault_type=fault_type,
+            target=target,
+            traffic_condition=condition,
+            start_time=start_time,
+            end_time=end_time,
+            status=status,
+            description=(
+                f"{description}; traffic_condition={condition}"
+                + (f"; error={error_message}" if error_message else "")
+            ),
+        )
+
+    time.sleep(2)
+
+
+def run_fault_matrix(net, duration, selected_faults=None, selected_conditions=None):
+    fault_types = selected_faults or list(FAULTS)
+    conditions = selected_conditions or list(TRAFFIC_CONDITIONS)
+    total = len(fault_types) * len(conditions)
+    completed = 0
+
+    for fault_type in fault_types:
+        for condition in conditions:
+            run_one_fault_experiment(
+                net,
+                fault_type,
+                condition,
+                duration,
+            )
+            completed += 1
+            print(f"\nProgress: {completed}/{total} experiments finished.")
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description="NetWatch-RCA baseline and fault experiment runner"
+    )
+    parser.add_argument(
+        "--baseline",
+        action="store_true",
+        help="Collect healthy idle, TCP and UDP baselines instead of faults",
+    )
+    parser.add_argument(
+        "--duration",
+        type=int,
+        default=60,
+        help="Duration in seconds for each collection (default: 60)",
+    )
+    parser.add_argument(
+        "--fault",
+        choices=tuple(FAULTS),
+        action="append",
+        help="Run only this fault type; may be supplied more than once",
+    )
+    parser.add_argument(
+        "--condition",
+        choices=TRAFFIC_CONDITIONS,
+        action="append",
+        help="Run only this traffic condition; may be supplied more than once",
+    )
+    args = parser.parse_args()
+
+    if args.duration <= 0:
+        parser.error("--duration must be greater than zero")
 
     net = None
-    servers = []
-    clients = []
-
     try:
-
         print("\n===================================")
-        print("       NETWATCH-RCA LOADED BASELINE")
+        print("          NETWATCH-RCA")
         print("===================================\n")
 
-        # Create and start Mininet topology.
         net = create_topology()
-        print("Host3 offloading settings:")
-        print(net.get("Host3").cmd("ethtool -k Host3-eth0"))
+        configure_switches(net)
+        print("Topology started successfully.")
 
-        print("Host4 offloading settings:")
-        print(net.get("Host4").cmd("ethtool -k Host4-eth0"))
-        # Configure switches.
-        for switch in net.switches:
-            switch.cmd(
-                f"ovs-vsctl set-fail-mode {switch.name} standalone"
-            )
+        if args.baseline:
+            run_baselines(net, args.duration)
+        else:
+            run_fault_matrix(net, args.duration, args.fault, args.condition)
 
-        print("\nTopology started successfully.")
-
-        # Start concurrent background traffic.
-        servers, clients = start_background_traffic(net)
-
-        print("\nCollecting loaded baseline metrics...")
-        print(f"Duration: {DURATION} seconds")
-        print("Output: data/loaded_baseline.csv\n")
-
-        # Collect telemetry while traffic is running.
-        experiment_id, status = collect_metrics(
-            net,
-            duration=DURATION,
-            mode="udp_baseline",
-            fault_type=""
-        )
-
-        print("\n===================================")
-        print("       COLLECTION SUMMARY")
-        print("===================================")
-        print(f"Experiment ID: {experiment_id}")
-        print(f"Status: {status}")
-        print("Output: data/loaded_baseline.csv")
-        print("===================================\n")
-
-    except KeyboardInterrupt:
-        print("\nLoaded baseline collection interrupted.")
-
-    except Exception as error:
-        print(f"\nError during collection: {error}")
-        raise
+        print("\nAll requested runs have finished.")
 
     finally:
-
-        # Stop traffic before shutting down Mininet.
-        stop_background_traffic(servers, clients)
-
         if net is not None:
             print("\nStopping Mininet topology...")
             net.stop()
-            print("Mininet stopped successfully.")
+            print("Mininet stopped.")
 
 
 if __name__ == "__main__":

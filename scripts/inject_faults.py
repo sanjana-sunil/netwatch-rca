@@ -4,7 +4,8 @@ from pathlib import Path
 from datetime import datetime
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-EXPERIMENT_LOG = PROJECT_ROOT / "logs" / "experiment_log.csv"
+EXPERIMENT_LOG = PROJECT_ROOT / "logs" / "experiments_log.csv"
+LEGACY_EXPERIMENT_LOG = PROJECT_ROOT / "logs" / "experiment_log.csv"
 NORMAL_BANDWIDTH = "50mbit"
 LIMITED_BANDWIDTH = "5mbit"
 # Inter-switch interfaces
@@ -186,33 +187,97 @@ def log_experiment(
     experiment_id,
     fault_type,
     target,
+    traffic_condition,
     start_time,
     end_time,
     status,
     description,
 ):
-    """Append one experiment record to experiment_log.csv."""
+    """Append an experiment record, including its traffic condition."""
 
     EXPERIMENT_LOG.parent.mkdir(parents=True, exist_ok=True)
+    if not EXPERIMENT_LOG.exists() and LEGACY_EXPERIMENT_LOG.exists():
+        LEGACY_EXPERIMENT_LOG.replace(EXPERIMENT_LOG)
+
+    file_exists = EXPERIMENT_LOG.exists() and EXPERIMENT_LOG.stat().st_size > 0
 
     start = datetime.fromisoformat(start_time)
     end = datetime.fromisoformat(end_time)
-
     duration_seconds = round((end - start).total_seconds(), 2)
 
-    with open(EXPERIMENT_LOG, "a", newline="") as file:
-        writer = csv.writer(file)
+    fields = [
+        "experiment_id",
+        "fault_type",
+        "target",
+        "traffic_condition",
+        "start_time",
+        "end_time",
+        "duration_seconds",
+        "status",
+        "description",
+    ]
 
-        writer.writerow([
-            experiment_id,
-            fault_type,
-            target,
-            start_time,
-            end_time,
-            duration_seconds,
-            status,
-            description,
-        ])
+    if file_exists:
+        with EXPERIMENT_LOG.open("r", newline="") as file:
+            existing_reader = csv.reader(file)
+            existing_header = next(existing_reader, [])
+            existing_rows = list(existing_reader)
+
+        old_fields = [
+            "experiment_id", "fault_type", "target", "start_time",
+            "end_time", "duration_seconds", "status", "description",
+        ]
+        if existing_header == old_fields:
+            legacy_rows = existing_rows
+        elif existing_header == fields:
+            legacy_rows = None
+        else:
+            # The previous logger used csv.writer without writing a header.
+            legacy_rows = [existing_header] + existing_rows
+
+        if legacy_rows is not None:
+            migrated_rows = []
+            for old_row in legacy_rows:
+                if len(old_row) == len(old_fields):
+                    old = dict(zip(old_fields, old_row))
+                    migrated_rows.append({
+                        "experiment_id": old["experiment_id"],
+                        "fault_type": old["fault_type"],
+                        "target": old["target"],
+                        "traffic_condition": "idle",
+                        "start_time": old["start_time"],
+                        "end_time": old["end_time"],
+                        "duration_seconds": old["duration_seconds"],
+                        "status": old["status"],
+                        "description": old["description"],
+                    })
+            temp_file = EXPERIMENT_LOG.with_suffix(".csv.tmp")
+            with temp_file.open("w", newline="") as file:
+                writer = csv.DictWriter(file, fieldnames=fields)
+                writer.writeheader()
+                writer.writerows(migrated_rows)
+            temp_file.replace(EXPERIMENT_LOG)
+        elif existing_header != fields:
+            raise ValueError(
+                f"{EXPERIMENT_LOG} has an unexpected header. Back it up "
+                "before writing new experiment records."
+            )
+
+    with EXPERIMENT_LOG.open("a", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=fields)
+        if not file_exists:
+            writer.writeheader()
+        writer.writerow({
+            "experiment_id": experiment_id,
+            "fault_type": fault_type,
+            "target": target,
+            "traffic_condition": traffic_condition,
+            "start_time": start_time,
+            "end_time": end_time,
+            "duration_seconds": duration_seconds,
+            "status": status,
+            "description": description,
+        })
 
     print(f"Experiment details saved to {EXPERIMENT_LOG}")
 
@@ -289,3 +354,4 @@ def restore_bandwidth_limitation(net):
         print(f"Restored 50 Mbps on {interface}")
 
     print("Normal bandwidth successfully restored.")
+

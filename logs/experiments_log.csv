@@ -1,0 +1,63 @@
+experiment_id,fault_type,target,traffic_condition,start_time,end_time,duration_seconds,status,description
+20261110_081317_a7e40b,inter_switch_link_failure,Switch1-Switch2,idle,2026-11-10T08:13:17+00:00,2026-11-10T08:16:48+00:00,211.0,completed,Inter-switch link disabled
+20261110_130910_ad872c,inter_switch_link_failure,Switch1-Switch2,idle,2026-11-10T13:09:10+00:00,2026-11-10T13:09:18+00:00,8.0,interrupted,Inter-switch link disabled
+20261110_135522_08019b,high_latency,Switch1-Switch2,idle,2026-11-10T13:55:22+00:00,2026-11-10T13:59:15+00:00,233.0,completed,100 ms delay and 10 ms jitter on both inter-switch interfaces
+20261111_015206_e0cf28,high_latency,Switch1-Switch2,idle,2026-11-11T01:52:06+00:00,2026-11-11T01:55:57+00:00,231.0,completed,100 ms delay and 10 ms jitter on both inter-switch interfaces
+20261111_092048_8784f3,high_latency,Switch1-Switch2,idle,2026-11-11T09:20:48+00:00,2026-11-11T09:24:42+00:00,234.0,completed,100 ms delay and 10 ms jitter on both inter-switch interfaces
+20261111_092626_1a0a9d,high_latency,Switch1-Switch2,idle,2026-11-11T09:26:26+00:00,2026-11-11T09:30:18+00:00,232.0,completed,100 ms delay and 10 ms jitter on both inter-switch interfaces
+20261111_093058_2bdf27,high_latency,Switch1-Switch2,idle,2026-11-11T09:30:58+00:00,2026-11-11T09:34:49+00:00,231.0,completed,100 ms delay and 10 ms jitter on both inter-switch interfaces
+20261111_093657_9c1732,high_latency,Switch1-Switch2,idle,2026-11-11T09:36:57+00:00,2026-11-11T09:40:46+00:00,229.0,completed,100 ms delay and 10 ms jitter on both inter-switch interfaces
+20261111_094815_f1a39e,high_latency,Switch1-Switch2,idle,2026-11-11T09:48:15+00:00,2026-11-11T09:52:12+00:00,237.0,completed,100 ms delay and 10 ms jitter on both inter-switch interfaces
+20261111_095226_bbf1dc,high_latency,Switch1-Switch2,idle,2026-11-11T09:52:26+00:00,2026-11-11T09:56:20+00:00,234.0,completed,100 ms delay and 10 ms jitter on both inter-switch interfaces
+20261111_100928_b019f6,high_latency,Switch1-Switch2,idle,2026-11-11T10:09:28+00:00,2026-11-11T10:13:21+00:00,233.0,completed,100 ms delay and 10 ms jitter on both inter-switch interfaces
+20261111_101414_00b489,high_latency,Switch1-Switch2,idle,2026-11-11T10:14:14+00:00,2026-11-11T10:18:06+00:00,232.0,completed,100 ms delay and 10 ms jitter on both inter-switch interfaces
+20261111_105235_aecc07,packet_loss,Switch1-Switch2,idle,2026-11-11T10:52:35+00:00,2026-11-11T10:56:36+00:00,241.0,completed,10% packet loss on bothinter-switch interfaces
+20261111_105951_ae415f,packet_loss,Switch1-Switch2,idle,2026-11-11T10:59:51+00:00,2026-11-11T11:04:00+00:00,249.0,completed,10% packet loss on bothinter-switch interfaces
+20261111_110440_cd8f12,packet_loss,Switch1-Switch2,idle,2026-11-11T11:04:40+00:00,2026-11-11T11:08:51+00:00,251.0,completed,10% packet loss on bothinter-switch interfaces
+20261111_111043_ca26ba,packet_loss,Switch1-Switch2,idle,2026-11-11T11:10:43+00:00,2026-11-11T11:14:56+00:00,253.0,completed,10% packet loss on bothinter-switch interfaces
+20261111_111513_9a7b4d,packet_loss,Switch1-Switch2,idle,2026-11-11T11:15:13+00:00,2026-11-11T11:19:22+00:00,249.0,completed,10% packet loss on bothinter-switch interfaces
+20261111_112042_ab50ce,packet_loss,Switch1-Switch2,idle,2026-11-11T11:20:42+00:00,2026-11-11T11:24:56+00:00,254.0,completed,10% packet loss on bothinter-switch interfaces
+20261111_112515_e40b7a,packet_loss,Switch1-Switch2,idle,2026-11-11T11:25:15+00:00,2026-11-11T11:29:28+00:00,253.0,completed,10% packet loss on bothinter-switch interfaces
+20261111_115416_160cf7,packet_loss,Switch1-Switch2,idle,2026-11-11T11:54:16+00:00,2026-11-11T11:58:29+00:00,253.0,completed,10% packet loss on bothinter-switch interfaces
+20261111_120009_422989,packet_loss,Switch1-Switch2,idle,2026-11-11T12:00:09+00:00,2026-11-11T12:04:30+00:00,261.0,completed,10% packet loss on bothinter-switch interfaces
+20261111_121047_6891f9,packet_loss,Switch1-Switch2,idle,2026-11-11T12:10:47+00:00,2026-11-11T12:14:59+00:00,252.0,completed,10% packet loss on bothinter-switch interfaces
+20261111_121514_7ab97d,packet_loss,Switch1-Switch2,idle,2026-11-11T12:15:14+00:00,2026-11-11T12:19:22+00:00,248.0,completed,10% packet loss on bothinter-switch interfaces
+20261111_130514_b4338c,bandwidth limitation,Switch1-Switch2,idle,2026-11-11T13:05:14+00:00,2026-11-11T13:50:48+00:00,2734.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261111_140807_6b6cc4,bandwidth limitation,Switch1-Switch2,idle,2026-11-11T14:08:07+00:00,2026-11-11T14:11:55+00:00,228.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261111_141243_75da96,bandwidth limitation,Switch1-Switch2,idle,2026-11-11T14:12:43+00:00,2026-11-11T14:16:31+00:00,228.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261111_141713_931029,bandwidth limitation,Switch1-Switch2,idle,2026-11-11T14:17:13+00:00,2026-11-11T14:21:00+00:00,227.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261111_143811_d0d656,bandwidth limitation,Switch1-Switch2,idle,2026-11-11T14:38:11+00:00,2026-11-11T14:41:59+00:00,228.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261111_145613_c72253,bandwidth limitation,Switch1-Switch2,idle,2026-11-11T14:56:13+00:00,2026-11-11T15:00:01+00:00,228.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261111_154923_f9ba43,bandwidth limitation,Switch1-Switch2,idle,2026-11-11T15:49:23+00:00,2026-11-11T15:53:13+00:00,230.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261111_160924_1d71a7,bandwidth limitation,Switch1-Switch2,idle,2026-11-11T16:09:24+00:00,2026-11-11T16:13:15+00:00,231.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261111_162417_aed153,bandwidth limitation,Switch1-Switch2,idle,2026-11-11T16:24:17+00:00,2026-11-11T16:28:01+00:00,224.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261112_011233_cb739b,bandwidth limitation,Switch1-Switch2,idle,2026-11-12T01:12:33+00:00,2026-11-12T01:16:27+00:00,234.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261112_012037_f36aff,bandwidth limitation,Switch1-Switch2,idle,2026-11-12T01:20:37+00:00,2026-11-12T01:24:33+00:00,236.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261112_013053_eea561,bandwidth limitation,Switch1-Switch2,idle,2026-11-12T01:30:53+00:00,2026-11-12T01:34:47+00:00,234.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261112_104111_75dac5,interswitch-link-failure,Switch1-Switch2,idle,2026-11-12T10:41:11+00:00,2026-11-12T10:44:42+00:00,211.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261112_110839_a95c86,interswitch-link-failure,Switch1-Switch2,idle,2026-11-12T11:08:39+00:00,2026-11-12T11:12:10+00:00,211.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261112_111451_3fda66,interswitch-link-failure,Switch1-Switch2,idle,2026-11-12T11:14:51+00:00,2026-11-12T11:18:22+00:00,211.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261112_112832_af805a,interswitch-link-failure,Switch1-Switch2,idle,2026-11-12T11:28:32+00:00,2026-11-12T11:32:03+00:00,211.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261112_113549_4d861e,interswitch-link-failure,Switch1-Switch2,idle,2026-11-12T11:35:49+00:00,2026-11-12T11:39:21+00:00,212.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261112_113954_4b02a1,interswitch-link-failure,Switch1-Switch2,idle,2026-11-12T11:39:54+00:00,2026-11-12T11:43:23+00:00,209.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261112_114624_f90b2c,interswitch-link-failure,Switch1-Switch2,idle,2026-11-12T11:46:24+00:00,2026-11-12T11:49:54+00:00,210.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261112_121126_57f704,interswitch-link-failure,Switch1-Switch2,idle,2026-11-12T12:11:26+00:00,2026-11-12T12:15:09+00:00,223.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261112_121803_e6298d,interswitch-link-failure,Switch1-Switch2,idle,2026-11-12T12:18:03+00:00,2026-11-12T12:45:36+00:00,1653.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261112_124818_bb8508,interswitch-link-failure,Switch1-Switch2,idle,2026-11-12T12:48:18+00:00,2026-11-12T12:51:47+00:00,209.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261112_131659_88cbd3,interswitch-link-failure,Switch1-Switch2,idle,2026-11-12T13:16:59+00:00,2026-11-12T13:20:32+00:00,213.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261113_045308_e9ea20,interswitch-link-failure,Switch1-Switch2,idle,2026-11-13T04:53:08+00:00,2026-11-13T04:56:37+00:00,209.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261113_053858_ed182b,interswitch-link-failure,Switch1-Switch2,idle,2026-11-13T05:38:58+00:00,2026-11-13T05:42:27+00:00,209.0,completed,bandwidth reduced from 50Mbps to 5mbpson both inter-switch interfaces
+20261119_053057_e8281c,high_latency,Switch1-eth3 and Switch2-eth1,tcp,2026-11-19T05:30:57,2026-11-19T05:31:30,33.0,completed,100 ms delay with 10 ms jitter; traffic_condition=tcp
+20261119_054413_5ecbd1,high_latency,Switch1-eth3 and Switch2-eth1,udp,2026-11-19T05:44:13,2026-11-19T05:45:00,47.0,completed,100 ms delay with 10 ms jitter; traffic_condition=udp
+20261119_055138_ccdeef,inter_switch_link_failure,Switch1-Switch2,idle,2026-11-19T05:51:38,2026-11-19T05:52:46,68.0,completed,Disable the inter-switch link; traffic_condition=idle
+20261119_055252_2717c5,inter_switch_link_failure,Switch1-Switch2,tcp,2026-11-19T05:52:52,2026-11-19T05:54:02,70.0,completed,Disable the inter-switch link; traffic_condition=tcp
+20261119_055408_acee20,inter_switch_link_failure,Switch1-Switch2,udp,2026-11-19T05:54:08,2026-11-19T05:55:40,92.0,completed,Disable the inter-switch link; traffic_condition=udp
+20261119_055542_41445b,high_latency,Switch1-eth3 and Switch2-eth1,idle,2026-11-19T05:55:42,2026-11-19T05:56:47,65.0,completed,100 ms delay with 10 ms jitter; traffic_condition=idle
+20261119_055653_829a69,high_latency,Switch1-eth3 and Switch2-eth1,tcp,2026-11-19T05:56:53,2026-11-19T05:58:01,68.0,completed,100 ms delay with 10 ms jitter; traffic_condition=tcp
+20261119_055807_bde11c,high_latency,Switch1-eth3 and Switch2-eth1,udp,2026-11-19T05:58:07,2026-11-19T05:59:22,75.0,completed,100 ms delay with 10 ms jitter; traffic_condition=udp
+20261119_055924_68e204,packet_loss,Switch1-eth3 and Switch2-eth1,idle,2026-11-19T05:59:24,2026-11-19T06:00:30,66.0,completed,10 percent packet loss; traffic_condition=idle
+20261119_060036_10b93b,packet_loss,Switch1-eth3 and Switch2-eth1,tcp,2026-11-19T06:00:36,2026-11-19T06:01:48,72.0,completed,10 percent packet loss; traffic_condition=tcp
+20261119_060154_1a24a5,packet_loss,Switch1-eth3 and Switch2-eth1,udp,2026-11-19T06:01:54,2026-11-19T06:03:26,92.0,completed,10 percent packet loss; traffic_condition=udp
+20261119_060328_bd0b18,bandwidth_limitation,Switch1-eth3 and Switch2-eth1,idle,2026-11-19T06:03:28,2026-11-19T06:04:28,60.0,completed,Reduce inter-switch bandwidth from 50 Mbps to 5 Mbps; traffic_condition=idle
+20261119_060434_b52346,bandwidth_limitation,Switch1-eth3 and Switch2-eth1,tcp,2026-11-19T06:04:34,2026-11-19T06:05:35,61.0,completed,Reduce inter-switch bandwidth from 50 Mbps to 5 Mbps; traffic_condition=tcp
+20261119_060541_979be1,bandwidth_limitation,Switch1-eth3 and Switch2-eth1,udp,2026-11-19T06:05:41,2026-11-19T06:06:57,76.0,completed,Reduce inter-switch bandwidth from 50 Mbps to 5 Mbps; traffic_condition=udp

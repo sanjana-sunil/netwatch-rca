@@ -33,6 +33,7 @@ FIELDS = [
     "timestamp",
     "experiment_id",
     "mode",
+    "traffic_condition",
     "entity_type",
     "entity_name",
     "source_host",
@@ -74,11 +75,13 @@ def make_row(
     experiment_id="",
     mode="baseline",
     fault_type="",
+    traffic_condition="idle",
 ):
     return {
         "timestamp": datetime.now().isoformat(timespec="seconds"),
         "experiment_id": experiment_id,
         "mode": mode,
+        "traffic_condition": traffic_condition,
         "entity_type": entity_type,
         "entity_name": entity_name,
         "source_host": source,
@@ -95,7 +98,7 @@ def make_row(
 # 2. PATH METRICS
 # --------------------------------------------------
 
-def collect_path_metrics(net, experiment_id, mode, fault_type):
+def collect_path_metrics(net, experiment_id, mode, fault_type, traffic_condition):
 
     rows = []
     hosts = {host.name: host for host in net.hosts}
@@ -142,6 +145,7 @@ def collect_path_metrics(net, experiment_id, mode, fault_type):
                         experiment_id=experiment_id,
                         mode=mode,
                         fault_type=fault_type,
+                traffic_condition=traffic_condition,
                     )
                 )
 
@@ -160,6 +164,7 @@ def collect_interface_counters(
     experiment_id,
     mode,
     fault_type,
+    traffic_condition,
 ):
 
     rows = []
@@ -193,6 +198,7 @@ def collect_interface_counters(
                 experiment_id=experiment_id,
                 mode=mode,
                 fault_type=fault_type,
+                traffic_condition=traffic_condition,
             )
         )
 
@@ -249,6 +255,7 @@ def collect_interface_counters(
                 experiment_id=experiment_id,
                 mode=mode,
                 fault_type=fault_type,
+                traffic_condition=traffic_condition,
             )
         )
 
@@ -288,6 +295,7 @@ def collect_interface_counters(
                 experiment_id=experiment_id,
                 mode=mode,
                 fault_type=fault_type,
+                traffic_condition=traffic_condition,
             )
         )
     return rows
@@ -297,7 +305,7 @@ def collect_interface_counters(
 # 4. HOST INTERFACE METRICS
 # --------------------------------------------------
 
-def collect_host_interface_metrics(net, experiment_id, mode, fault_type):
+def collect_host_interface_metrics(net, experiment_id, mode, fault_type, traffic_condition):
 
     rows = []
 
@@ -320,6 +328,7 @@ def collect_host_interface_metrics(net, experiment_id, mode, fault_type):
                     experiment_id=experiment_id,
                     mode=mode,
                     fault_type=fault_type,
+                    traffic_condition=traffic_condition,
                 )
             )
 
@@ -352,6 +361,7 @@ def collect_host_interface_metrics(net, experiment_id, mode, fault_type):
                     experiment_id=experiment_id,
                     mode=mode,
                     fault_type=fault_type,
+                    traffic_condition=traffic_condition,
                 )
             )
 
@@ -362,7 +372,7 @@ def collect_host_interface_metrics(net, experiment_id, mode, fault_type):
 # 5. SWITCH PORT METRICS
 # --------------------------------------------------
 
-def collect_switch_port_metrics(net, experiment_id, mode, fault_type):
+def collect_switch_port_metrics(net, experiment_id, mode, fault_type, traffic_condition):
 
     rows = []
 
@@ -393,6 +403,7 @@ def collect_switch_port_metrics(net, experiment_id, mode, fault_type):
                     experiment_id=experiment_id,
                     mode=mode,
                     fault_type=fault_type,
+                    traffic_condition=traffic_condition,
                 )
             )
 
@@ -422,6 +433,7 @@ def collect_switch_port_metrics(net, experiment_id, mode, fault_type):
                     experiment_id=experiment_id,
                     mode=mode,
                     fault_type=fault_type,
+                    traffic_condition=traffic_condition,
                 )
             )
 
@@ -443,6 +455,7 @@ def collect_switch_port_metrics(net, experiment_id, mode, fault_type):
                     experiment_id=experiment_id,
                     mode=mode,
                     fault_type=fault_type,
+                    traffic_condition=traffic_condition,
                 )
             )
 
@@ -482,6 +495,7 @@ def collect_system_metrics(
     experiment_id,
     mode,
     fault_type,
+    traffic_condition,
 ):
 
     rows = []
@@ -516,6 +530,7 @@ def collect_system_metrics(
                     experiment_id=experiment_id,
                     mode=mode,
                     fault_type=fault_type,
+                    traffic_condition=traffic_condition,
                 )
             )
 
@@ -555,6 +570,7 @@ def collect_system_metrics(
                     experiment_id=experiment_id,
                     mode=mode,
                     fault_type=fault_type,
+                    traffic_condition=traffic_condition,
                 )
             )
 
@@ -575,16 +591,34 @@ def append_measurements(csv_file, rows):
     )
 
     if file_exists:
-
         with open(csv_file, "r", newline="") as file:
+            reader = csv.DictReader(file)
+            existing_fields = reader.fieldnames or []
+            existing_rows = list(reader)
 
-            existing_fields = next(csv.reader(file), [])
+        # Migrate the previous 12-column schema without discarding data.
+        if "traffic_condition" not in existing_fields:
+            inferred = {
+                "baseline.csv": "idle",
+                "loaded_baseline.csv": "tcp",
+                "udp_baseline.csv": "udp",
+                "experiments.csv": "idle",
+            }.get(csv_file.name, "idle")
 
-        if existing_fields != FIELDS:
+            for old_row in existing_rows:
+                old_row["traffic_condition"] = inferred
 
+            temp_file = csv_file.with_suffix(csv_file.suffix + ".tmp")
+            with open(temp_file, "w", newline="") as file:
+                writer = csv.DictWriter(file, fieldnames=FIELDS)
+                writer.writeheader()
+                writer.writerows(existing_rows)
+            temp_file.replace(csv_file)
+
+        elif existing_fields != FIELDS:
             raise ValueError(
-                f"{csv_file} has an old or incompatible CSV header. "
-                "Back up the file before starting a new-schema collection."
+                f"{csv_file} has an incompatible CSV header. "
+                "Please back up the file and check its columns."
             )
 
     with open(csv_file, "a", newline="") as file:
@@ -601,7 +635,7 @@ def append_measurements(csv_file, rows):
 
 
 
-def collect_throughput_metrics(net, experiment_id, mode, fault_type):
+def collect_throughput_metrics(net, experiment_id, mode, fault_type, traffic_condition):
 
     rows = []
     hosts = {host.name: host for host in net.hosts}
@@ -649,13 +683,13 @@ def collect_throughput_metrics(net, experiment_id, mode, fault_type):
 
                 rows.extend(
                     collect_host_interface_metrics(
-                        net, experiment_id, mode, fault_type
+                        net, experiment_id, mode, fault_type, traffic_condition
                     )
                 )
 
                 rows.extend(
                     collect_switch_port_metrics(
-                        net, experiment_id, mode, fault_type
+                        net, experiment_id, mode, fault_type, traffic_condition
                     )
                 )
 
@@ -716,6 +750,7 @@ def collect_throughput_metrics(net, experiment_id, mode, fault_type):
                 experiment_id=experiment_id,
                 mode=mode,
                 fault_type=fault_type,
+                traffic_condition=traffic_condition,
             )
         )
 
@@ -732,7 +767,19 @@ def collect_metrics(
     mode="baseline",
     fault_type="",
     experiment_id=None,
+    traffic_condition=None,
 ):
+
+    if traffic_condition is None:
+        traffic_condition = {
+            "baseline": "idle",
+            "loaded_baseline": "tcp",
+            "udp_baseline": "udp",
+            "experiment": "idle",
+        }.get(mode, "idle")
+
+    if traffic_condition not in ("idle", "tcp", "udp"):
+        raise ValueError("traffic_condition must be 'idle', 'tcp' or 'udp'")
 
     if mode not in (
     "baseline",
@@ -740,10 +787,7 @@ def collect_metrics(
     "udp_baseline",
     "experiment"
     ):
-        raise ValueError(
-            "mode must be 'baseline', "
-            "'loaded_baseline' or 'experiment'"
-        )
+        raise ValueError("Invalid collection mode.")
 
     output_files = {
     "baseline": PROJECT_ROOT / "data" / "baseline.csv",
@@ -784,6 +828,7 @@ def collect_metrics(
                 experiment_id,
                 mode,
                 fault_type,
+                traffic_condition,
             )
 
             # 2. Collect host interface metrics.
@@ -793,6 +838,7 @@ def collect_metrics(
                     experiment_id,
                     mode,
                     fault_type,
+                    traffic_condition,
                 )
             )
 
@@ -803,6 +849,7 @@ def collect_metrics(
                     experiment_id,
                     mode,
                     fault_type,
+                    traffic_condition,
                 )
             )
 
@@ -813,6 +860,7 @@ def collect_metrics(
                 experiment_id,
                 mode,
                 fault_type,
+                traffic_condition,
             )
 
             rows.extend(system_rows)
@@ -834,7 +882,7 @@ def collect_metrics(
                     min(INTERVAL, remaining)
                     )
         
-            if mode not in ("loaded_baseline", "udp_baseline"):
+            if mode == "baseline":
 
                 print("\nStarting throughput measurements...")
 
@@ -843,6 +891,7 @@ def collect_metrics(
                     experiment_id,
                     mode,
                     fault_type,
+                    traffic_condition,
                 )   
 
                 append_measurements(csv_file, throughput_rows)
@@ -855,3 +904,4 @@ def collect_metrics(
         print("\nTelemetry collection interrupted.")
         return experiment_id, "interrupted"
     return experiment_id, "completed"
+
