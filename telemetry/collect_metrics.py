@@ -110,7 +110,7 @@ def collect_path_metrics(net, experiment_id, mode, fault_type):
             measurement = collect_ping(
                 hosts[source_name],
                 hosts[destination_name],
-                count=5,
+                count=2,
             )
 
             values = [
@@ -257,7 +257,39 @@ def collect_interface_counters(
         current_time,
         current_counters,
     )
+        # Calculate interface throughput in Mbps.
+    for rate_name in ("rx_bytes_per_sec", "tx_bytes_per_sec"):
 
+        rate_row = next(
+            row for row in rows
+            if row.get("metric_name") == rate_name
+        )
+
+        rate_value = rate_row.get("metric_value")
+
+        throughput = (
+            round((rate_value * 8) / 1_000_000, 3)
+            if rate_value is not None
+            else None
+        )
+
+        rows.append(
+            make_row(
+                entity_type=entity_type,
+                entity_name=entity_name,
+                metric_name=(
+                    "rx_throughput_mbps"
+                    if rate_name == "rx_bytes_per_sec"
+                    else "tx_throughput_mbps"
+                ),
+                value=throughput,
+                unit="Mbps",
+                interface=interface,
+                experiment_id=experiment_id,
+                mode=mode,
+                fault_type=fault_type,
+            )
+        )
     return rows
 
 

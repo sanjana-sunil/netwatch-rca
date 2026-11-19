@@ -108,7 +108,11 @@ def main():
 
         # Create and start Mininet topology.
         net = create_topology()
+        print("Host3 offloading settings:")
+        print(net.get("Host3").cmd("ethtool -k Host3-eth0"))
 
+        print("Host4 offloading settings:")
+        print(net.get("Host4").cmd("ethtool -k Host4-eth0"))
         # Configure switches.
         for switch in net.switches:
             switch.cmd(
