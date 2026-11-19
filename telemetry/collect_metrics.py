@@ -882,7 +882,7 @@ def collect_metrics(
                     min(INTERVAL, remaining)
                     )
         
-            if mode == "baseline":
+            if traffic_condition in ("tcp", "udp"):
 
                 print("\nStarting throughput measurements...")
 
@@ -892,7 +892,7 @@ def collect_metrics(
                     mode,
                     fault_type,
                     traffic_condition,
-                )   
+                )
 
                 append_measurements(csv_file, throughput_rows)
 

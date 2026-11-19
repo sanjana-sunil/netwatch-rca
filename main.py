@@ -68,8 +68,10 @@ def configure_switches(net):
         )
 
 
-def run_baselines(net, duration):
-    for condition in TRAFFIC_CONDITIONS:
+def run_baselines(net, duration, conditions=None):
+    conditions = conditions or TRAFFIC_CONDITIONS
+
+    for condition in conditions:
         servers, clients = start_background_traffic(net, condition, duration)
         try:
             print(f"\nCollecting {condition.upper()} healthy baseline...")
@@ -223,7 +225,7 @@ def main():
         print("Topology started successfully.")
 
         if args.baseline:
-            run_baselines(net, args.duration)
+            run_baselines(net, args.duration, args.condition)
         else:
             run_fault_matrix(net, args.duration, args.fault, args.condition)
 
