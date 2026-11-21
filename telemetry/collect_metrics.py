@@ -24,7 +24,7 @@ THROUGHPUT_PAIRS = [
 ]
 
 IPERF_DURATION = 5
-IPERF_PORT = 5202
+IPERF_PORT = 5210
 # Stores previous interface readings for rate calculations.
 PREVIOUS_INTERFACE_COUNTERS = {}
 

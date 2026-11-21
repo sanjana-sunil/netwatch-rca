@@ -88,3 +88,4 @@ experiment_id,fault_type,target,traffic_condition,start_time,end_time,duration_s
 20261119_104533_0c010b,packet_loss,Switch1-eth3 and Switch2-eth1,tcp,2026-11-19T10:45:33,2026-11-19T10:46:08,35.0,completed,10 percent packet loss; traffic_condition=tcp
 20261119_104656_f8ca56,packet_loss,Switch1-eth3 and Switch2-eth1,idle,2026-11-19T10:46:56,2026-11-19T10:47:29,33.0,completed,10 percent packet loss; traffic_condition=idle
 20261119_105257_b6bedf,packet_loss,Switch1-eth3 and Switch2-eth1,idle,2026-11-19T10:52:57,2026-11-19T10:53:36,39.0,completed,10 percent packet loss; traffic_condition=idle
+20261119_122444_0c24de,inter_switch_link_failure,Switch1-Switch2,idle,2026-11-19T12:24:44,2026-11-19T12:25:18,34.0,interrupted,Disable the inter-switch link; traffic_condition=idle

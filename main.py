@@ -2,7 +2,7 @@ import argparse
 import time
 import uuid
 from datetime import datetime
-
+from mininet.cli import CLI
 from topology.network_topology import create_topology
 from telemetry.collect_metrics import collect_metrics
 from scripts.generate_traffic import (
@@ -183,6 +183,7 @@ def run_fault_matrix(net, duration, selected_faults=None, selected_conditions=No
 
 
 def main():
+
     parser = argparse.ArgumentParser(
         description="NetWatch-RCA baseline and fault experiment runner"
     )
@@ -223,13 +224,13 @@ def main():
         net = create_topology()
         configure_switches(net)
         print("Topology started successfully.")
+        CLI(net)
+        #if args.baseline:
+         #   run_baselines(net, args.duration, args.condition)
+        #else:
+          #  run_fault_matrix(net, args.duration, args.fault, args.condition)
 
-        if args.baseline:
-            run_baselines(net, args.duration, args.condition)
-        else:
-            run_fault_matrix(net, args.duration, args.fault, args.condition)
-
-        print("\nAll requested runs have finished.")
+        #print("\nAll requested runs have finished.")
 
     finally:
         if net is not None:
