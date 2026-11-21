@@ -40,17 +40,17 @@ def start_background_traffic(net, traffic_condition, duration):
                 "iperf3",
                 "-c", hosts[destination_name].IP(),
                 "-p", str(port),
-                "-t", str(duration + 30),
-                "-i", "1",
+                "-t", str(duration + 5),
+                "-J",
             ]
-
             if traffic_condition == "udp":
                 command.extend(["-u", "-b", UDP_BITRATE])
 
             client = hosts[source_name].popen(
                 command,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
             )
             clients.append(client)
 

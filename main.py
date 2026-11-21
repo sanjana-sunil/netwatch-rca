@@ -81,6 +81,7 @@ def run_baselines(net, duration, conditions=None):
                 mode=BASELINE_MODES[condition],
                 fault_type="",
                 traffic_condition=condition,
+                background_clients = clients,
             )
             print(
                 f"Baseline complete: condition={condition}, "
@@ -117,6 +118,7 @@ def run_one_fault_experiment(net, fault_type, condition, duration):
             fault_type=fault_type,
             experiment_id=experiment_id,
             traffic_condition=condition,
+            background_clients = clients,
         )
         experiment_id = returned_id
         status = collection_status
@@ -224,13 +226,12 @@ def main():
         net = create_topology()
         configure_switches(net)
         print("Topology started successfully.")
-        CLI(net)
-        #if args.baseline:
-         #   run_baselines(net, args.duration, args.condition)
-        #else:
-          #  run_fault_matrix(net, args.duration, args.fault, args.condition)
+        if args.baseline:
+            run_baselines(net, args.duration, args.condition)
+        else:
+            run_fault_matrix(net, args.duration, args.fault, args.condition)
 
-        #print("\nAll requested runs have finished.")
+        print("\nAll requested runs have finished.")
 
     finally:
         if net is not None:

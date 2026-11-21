@@ -1,24 +1,4 @@
 timestamp,experiment_id,mode,traffic_condition,entity_type,entity_name,source_host,destination_host,interface,metric_name,metric_value,unit,fault_type,threshold_type,threshold,anomaly,anomaly_reason
-2026-11-19T05:30:59,20261119_053057_e8281c,experiment,tcp,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,250.0,ms,high_latency,upper,97.429351,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:00,20261119_053057_e8281c,experiment,tcp,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,353.5,ms,high_latency,upper,104.04587,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:00,20261119_053057_e8281c,experiment,tcp,path,Host1->Host4,Host1,Host4,,jitter_ms,247.0,ms,high_latency,upper,65.597645,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:03,20261119_053057_e8281c,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,325.5,ms,high_latency,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:03,20261119_053057_e8281c,experiment,tcp,path,Host2->Host3,Host2,Host3,,jitter_ms,229.0,ms,high_latency,upper,47.136484,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:04,20261119_053057_e8281c,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,349.0,ms,high_latency,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:04,20261119_053057_e8281c,experiment,tcp,path,Host2->Host4,Host2,Host4,,jitter_ms,256.0,ms,high_latency,upper,33.878173,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:05,20261119_053057_e8281c,experiment,tcp,path,Host3->Host1,Host3,Host1,,rtt_avg_ms,252.5,ms,high_latency,upper,95.7685,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:06,20261119_053057_e8281c,experiment,tcp,path,Host3->Host2,Host3,Host2,,rtt_avg_ms,226.5,ms,high_latency,upper,57.515488,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:09,20261119_053057_e8281c,experiment,tcp,path,Host4->Host1,Host4,Host1,,rtt_avg_ms,241.5,ms,high_latency,upper,99.331096,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:09,20261119_053057_e8281c,experiment,tcp,path,Host4->Host1,Host4,Host1,,jitter_ms,25.0,ms,high_latency,upper,23.218589,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:10,20261119_053057_e8281c,experiment,tcp,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,222.5,ms,high_latency,upper,44.447909,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:17,20261119_053057_e8281c,experiment,tcp,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,251.5,ms,high_latency,upper,97.429351,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:18,20261119_053057_e8281c,experiment,tcp,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,245.0,ms,high_latency,upper,104.04587,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:20,20261119_053057_e8281c,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,216.5,ms,high_latency,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:21,20261119_053057_e8281c,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,236.0,ms,high_latency,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:23,20261119_053057_e8281c,experiment,tcp,path,Host3->Host1,Host3,Host1,,rtt_avg_ms,251.0,ms,high_latency,upper,95.7685,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:24,20261119_053057_e8281c,experiment,tcp,path,Host3->Host2,Host3,Host2,,rtt_avg_ms,235.5,ms,high_latency,upper,57.515488,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:26,20261119_053057_e8281c,experiment,tcp,path,Host4->Host1,Host4,Host1,,rtt_avg_ms,255.5,ms,high_latency,upper,99.331096,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:28,20261119_053057_e8281c,experiment,tcp,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,232.5,ms,high_latency,upper,44.447909,yes,Measurement exceeded upper threshold
 2026-11-19T05:51:41,20261119_055138_ccdeef,experiment,idle,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
 2026-11-19T05:51:41,20261119_055138_ccdeef,experiment,idle,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
 2026-11-19T05:51:43,20261119_055138_ccdeef,experiment,idle,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
@@ -83,66 +63,6 @@ timestamp,experiment_id,mode,traffic_condition,entity_type,entity_name,source_ho
 2026-11-19T05:52:46,20261119_055138_ccdeef,experiment,idle,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
 2026-11-19T05:52:46,20261119_055138_ccdeef,experiment,idle,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
 2026-11-19T05:52:46,20261119_055138_ccdeef,experiment,idle,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T05:52:56,20261119_055252_2717c5,experiment,tcp,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:52:56,20261119_055252_2717c5,experiment,tcp,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:52:58,20261119_055252_2717c5,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:52:58,20261119_055252_2717c5,experiment,tcp,path,Host1->Host4,Host1,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:01,20261119_055252_2717c5,experiment,tcp,path,Host2->Host3,Host2,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:01,20261119_055252_2717c5,experiment,tcp,path,Host2->Host3,Host2,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:03,20261119_055252_2717c5,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:03,20261119_055252_2717c5,experiment,tcp,path,Host2->Host4,Host2,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:05,20261119_055252_2717c5,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:05,20261119_055252_2717c5,experiment,tcp,path,Host3->Host1,Host3,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:07,20261119_055252_2717c5,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:07,20261119_055252_2717c5,experiment,tcp,path,Host3->Host2,Host3,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:10,20261119_055252_2717c5,experiment,tcp,path,Host4->Host1,Host4,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:10,20261119_055252_2717c5,experiment,tcp,path,Host4->Host1,Host4,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:12,20261119_055252_2717c5,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:12,20261119_055252_2717c5,experiment,tcp,path,Host4->Host2,Host4,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:14,20261119_055252_2717c5,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T05:53:14,20261119_055252_2717c5,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T05:53:14,20261119_055252_2717c5,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T05:53:14,20261119_055252_2717c5,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T05:53:20,20261119_055252_2717c5,experiment,tcp,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:20,20261119_055252_2717c5,experiment,tcp,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:22,20261119_055252_2717c5,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:22,20261119_055252_2717c5,experiment,tcp,path,Host1->Host4,Host1,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:25,20261119_055252_2717c5,experiment,tcp,path,Host2->Host3,Host2,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:25,20261119_055252_2717c5,experiment,tcp,path,Host2->Host3,Host2,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:27,20261119_055252_2717c5,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:27,20261119_055252_2717c5,experiment,tcp,path,Host2->Host4,Host2,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:29,20261119_055252_2717c5,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:29,20261119_055252_2717c5,experiment,tcp,path,Host3->Host1,Host3,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:31,20261119_055252_2717c5,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:31,20261119_055252_2717c5,experiment,tcp,path,Host3->Host2,Host3,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:34,20261119_055252_2717c5,experiment,tcp,path,Host4->Host1,Host4,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:34,20261119_055252_2717c5,experiment,tcp,path,Host4->Host1,Host4,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:36,20261119_055252_2717c5,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:36,20261119_055252_2717c5,experiment,tcp,path,Host4->Host2,Host4,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:38,20261119_055252_2717c5,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T05:53:38,20261119_055252_2717c5,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T05:53:38,20261119_055252_2717c5,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T05:53:38,20261119_055252_2717c5,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T05:53:43,20261119_055252_2717c5,experiment,tcp,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:43,20261119_055252_2717c5,experiment,tcp,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:45,20261119_055252_2717c5,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:45,20261119_055252_2717c5,experiment,tcp,path,Host1->Host4,Host1,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:49,20261119_055252_2717c5,experiment,tcp,path,Host2->Host3,Host2,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:49,20261119_055252_2717c5,experiment,tcp,path,Host2->Host3,Host2,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:51,20261119_055252_2717c5,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:51,20261119_055252_2717c5,experiment,tcp,path,Host2->Host4,Host2,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:53,20261119_055252_2717c5,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:53,20261119_055252_2717c5,experiment,tcp,path,Host3->Host1,Host3,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:55,20261119_055252_2717c5,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:55,20261119_055252_2717c5,experiment,tcp,path,Host3->Host2,Host3,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:53:58,20261119_055252_2717c5,experiment,tcp,path,Host4->Host1,Host4,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:53:58,20261119_055252_2717c5,experiment,tcp,path,Host4->Host1,Host4,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:54:00,20261119_055252_2717c5,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T05:54:00,20261119_055252_2717c5,experiment,tcp,path,Host4->Host2,Host4,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T05:54:02,20261119_055252_2717c5,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T05:54:02,20261119_055252_2717c5,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T05:54:02,20261119_055252_2717c5,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T05:54:02,20261119_055252_2717c5,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
 2026-11-19T05:55:44,20261119_055542_41445b,experiment,idle,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,212.0,ms,high_latency,upper,1.245113,yes,Measurement exceeded upper threshold
 2026-11-19T05:55:44,20261119_055542_41445b,experiment,idle,path,Host1->Host3,Host1,Host3,,jitter_ms,2.0,ms,high_latency,upper,1.487657,yes,Measurement exceeded upper threshold
 2026-11-19T05:55:46,20261119_055542_41445b,experiment,idle,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,301.5,ms,high_latency,upper,0.787581,yes,Measurement exceeded upper threshold
@@ -213,44 +133,6 @@ timestamp,experiment_id,mode,traffic_condition,entity_type,entity_name,source_ho
 2026-11-19T05:56:44,20261119_055542_41445b,experiment,idle,path,Host4->Host1,Host4,Host1,,jitter_ms,5.0,ms,high_latency,upper,1.125295,yes,Measurement exceeded upper threshold
 2026-11-19T05:56:45,20261119_055542_41445b,experiment,idle,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,205.0,ms,high_latency,upper,0.885637,yes,Measurement exceeded upper threshold
 2026-11-19T05:56:45,20261119_055542_41445b,experiment,idle,path,Host4->Host2,Host4,Host2,,jitter_ms,20.0,ms,high_latency,upper,1.008127,yes,Measurement exceeded upper threshold
-2026-11-19T05:56:56,20261119_055653_829a69,experiment,tcp,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,255.0,ms,high_latency,upper,97.429351,yes,Measurement exceeded upper threshold
-2026-11-19T05:56:56,20261119_055653_829a69,experiment,tcp,path,Host1->Host3,Host1,Host3,,jitter_ms,22.0,ms,high_latency,upper,19.538169,yes,Measurement exceeded upper threshold
-2026-11-19T05:56:57,20261119_055653_829a69,experiment,tcp,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,237.5,ms,high_latency,upper,104.04587,yes,Measurement exceeded upper threshold
-2026-11-19T05:56:59,20261119_055653_829a69,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,233.0,ms,high_latency,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:00,20261119_055653_829a69,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,206.5,ms,high_latency,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:02,20261119_055653_829a69,experiment,tcp,path,Host3->Host1,Host3,Host1,,rtt_avg_ms,252.0,ms,high_latency,upper,95.7685,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:03,20261119_055653_829a69,experiment,tcp,path,Host3->Host2,Host3,Host2,,rtt_avg_ms,239.0,ms,high_latency,upper,57.515488,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:05,20261119_055653_829a69,experiment,tcp,path,Host4->Host1,Host4,Host1,,rtt_avg_ms,239.5,ms,high_latency,upper,99.331096,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:05,20261119_055653_829a69,experiment,tcp,path,Host4->Host1,Host4,Host1,,jitter_ms,35.0,ms,high_latency,upper,23.218589,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:06,20261119_055653_829a69,experiment,tcp,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,204.0,ms,high_latency,upper,44.447909,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:06,20261119_055653_829a69,experiment,tcp,path,Host4->Host2,Host4,Host2,,jitter_ms,26.0,ms,high_latency,upper,23.405377,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:13,20261119_055653_829a69,experiment,tcp,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,247.5,ms,high_latency,upper,97.429351,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:14,20261119_055653_829a69,experiment,tcp,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,249.5,ms,high_latency,upper,104.04587,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:17,20261119_055653_829a69,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,237.5,ms,high_latency,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:18,20261119_055653_829a69,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,225.0,ms,high_latency,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:19,20261119_055653_829a69,experiment,tcp,path,Host3->Host1,Host3,Host1,,rtt_avg_ms,238.5,ms,high_latency,upper,95.7685,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:20,20261119_055653_829a69,experiment,tcp,path,Host3->Host2,Host3,Host2,,rtt_avg_ms,221.0,ms,high_latency,upper,57.515488,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:20,20261119_055653_829a69,experiment,tcp,path,Host3->Host2,Host3,Host2,,jitter_ms,26.0,ms,high_latency,upper,22.80468,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:23,20261119_055653_829a69,experiment,tcp,path,Host4->Host1,Host4,Host1,,rtt_avg_ms,261.5,ms,high_latency,upper,99.331096,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:24,20261119_055653_829a69,experiment,tcp,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,221.0,ms,high_latency,upper,44.447909,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:30,20261119_055653_829a69,experiment,tcp,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,245.5,ms,high_latency,upper,97.429351,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:30,20261119_055653_829a69,experiment,tcp,path,Host1->Host3,Host1,Host3,,jitter_ms,21.0,ms,high_latency,upper,19.538169,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:32,20261119_055653_829a69,experiment,tcp,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,254.0,ms,high_latency,upper,104.04587,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:34,20261119_055653_829a69,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,219.5,ms,high_latency,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:35,20261119_055653_829a69,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,232.0,ms,high_latency,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:36,20261119_055653_829a69,experiment,tcp,path,Host3->Host1,Host3,Host1,,rtt_avg_ms,236.5,ms,high_latency,upper,95.7685,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:38,20261119_055653_829a69,experiment,tcp,path,Host3->Host2,Host3,Host2,,rtt_avg_ms,208.5,ms,high_latency,upper,57.515488,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:38,20261119_055653_829a69,experiment,tcp,path,Host3->Host2,Host3,Host2,,jitter_ms,23.0,ms,high_latency,upper,22.80468,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:40,20261119_055653_829a69,experiment,tcp,path,Host4->Host1,Host4,Host1,,rtt_avg_ms,234.5,ms,high_latency,upper,99.331096,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:41,20261119_055653_829a69,experiment,tcp,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,226.0,ms,high_latency,upper,44.447909,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:48,20261119_055653_829a69,experiment,tcp,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,251.0,ms,high_latency,upper,97.429351,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:49,20261119_055653_829a69,experiment,tcp,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,253.5,ms,high_latency,upper,104.04587,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:51,20261119_055653_829a69,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,217.0,ms,high_latency,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:53,20261119_055653_829a69,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,234.0,ms,high_latency,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:54,20261119_055653_829a69,experiment,tcp,path,Host3->Host1,Host3,Host1,,rtt_avg_ms,239.0,ms,high_latency,upper,95.7685,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:55,20261119_055653_829a69,experiment,tcp,path,Host3->Host2,Host3,Host2,,rtt_avg_ms,219.0,ms,high_latency,upper,57.515488,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:57,20261119_055653_829a69,experiment,tcp,path,Host4->Host1,Host4,Host1,,rtt_avg_ms,231.0,ms,high_latency,upper,99.331096,yes,Measurement exceeded upper threshold
-2026-11-19T05:57:59,20261119_055653_829a69,experiment,tcp,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,224.0,ms,high_latency,upper,44.447909,yes,Measurement exceeded upper threshold
 2026-11-19T05:59:27,20261119_055924_68e204,experiment,idle,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,0.8465,ms,packet_loss,upper,0.787581,yes,Measurement exceeded upper threshold
 2026-11-19T05:59:27,20261119_055924_68e204,experiment,idle,path,Host1->Host4,Host1,Host4,,jitter_ms,1.367,ms,packet_loss,upper,0.870453,yes,Measurement exceeded upper threshold
 2026-11-19T05:59:29,20261119_055924_68e204,experiment,idle,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,2.3275,ms,packet_loss,upper,1.252038,yes,Measurement exceeded upper threshold
@@ -268,22 +150,6 @@ timestamp,experiment_id,mode,traffic_condition,entity_type,entity_name,source_ho
 2026-11-19T06:00:05,20261119_055924_68e204,experiment,idle,path,Host2->Host3,Host2,Host3,,jitter_ms,5.517,ms,packet_loss,upper,1.531584,yes,Measurement exceeded upper threshold
 2026-11-19T06:00:09,20261119_055924_68e204,experiment,idle,path,Host3->Host2,Host3,Host2,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
 2026-11-19T06:00:22,20261119_055924_68e204,experiment,idle,path,Host2->Host3,Host2,Host3,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T06:00:43,20261119_060036_10b93b,experiment,tcp,path,Host2->Host3,Host2,Host3,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T06:00:46,20261119_060036_10b93b,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,100.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T06:00:46,20261119_060036_10b93b,experiment,tcp,path,Host3->Host1,Host3,Host1,,path_reachability,0,boolean,packet_loss,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T06:00:58,20261119_060036_10b93b,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T06:01:06,20261119_060036_10b93b,experiment,tcp,path,Host4->Host1,Host4,Host1,,packet_loss_pct,100.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T06:01:06,20261119_060036_10b93b,experiment,tcp,path,Host4->Host1,Host4,Host1,,path_reachability,0,boolean,packet_loss,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T06:01:08,20261119_060036_10b93b,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T06:01:19,20261119_060036_10b93b,experiment,tcp,path,Host2->Host3,Host2,Host3,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T06:01:21,20261119_060036_10b93b,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,100.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T06:01:21,20261119_060036_10b93b,experiment,tcp,path,Host2->Host4,Host2,Host4,,path_reachability,0,boolean,packet_loss,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T06:01:24,20261119_060036_10b93b,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T06:01:27,20261119_060036_10b93b,experiment,tcp,path,Host4->Host1,Host4,Host1,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T06:01:36,20261119_060036_10b93b,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T06:01:36,20261119_060036_10b93b,experiment,tcp,path,Host1->Host4,Host1,Host4,,path_reachability,0,boolean,packet_loss,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T06:01:42,20261119_060036_10b93b,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T06:01:48,20261119_060036_10b93b,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.137,%,packet_loss,upper,20.110173,yes,Measurement exceeded upper threshold
 2026-11-19T06:03:31,20261119_060328_bd0b18,experiment,idle,path,Host1->Host4,Host1,Host4,,jitter_ms,1.025,ms,bandwidth_limitation,upper,0.870453,yes,Measurement exceeded upper threshold
 2026-11-19T06:03:38,20261119_060328_bd0b18,experiment,idle,path,Host3->Host4,Host3,Host4,,rtt_avg_ms,1.0325,ms,bandwidth_limitation,upper,0.831969,yes,Measurement exceeded upper threshold
 2026-11-19T06:03:38,20261119_060328_bd0b18,experiment,idle,path,Host3->Host4,Host3,Host4,,jitter_ms,1.895,ms,bandwidth_limitation,upper,0.927768,yes,Measurement exceeded upper threshold
@@ -297,103 +163,6 @@ timestamp,experiment_id,mode,traffic_condition,entity_type,entity_name,source_ho
 2026-11-19T06:04:01,20261119_060328_bd0b18,experiment,idle,path,Host1->Host3,Host1,Host3,,jitter_ms,1.763,ms,bandwidth_limitation,upper,1.487657,yes,Measurement exceeded upper threshold
 2026-11-19T06:04:23,20261119_060328_bd0b18,experiment,idle,path,Host3->Host4,Host3,Host4,,rtt_avg_ms,1.102,ms,bandwidth_limitation,upper,0.831969,yes,Measurement exceeded upper threshold
 2026-11-19T06:04:23,20261119_060328_bd0b18,experiment,idle,path,Host3->Host4,Host3,Host4,,jitter_ms,2.036,ms,bandwidth_limitation,upper,0.927768,yes,Measurement exceeded upper threshold
-2026-11-19T06:04:58,20261119_060434_b52346,experiment,tcp,path,Host3->Host2,Host3,Host2,,jitter_ms,35.1,ms,bandwidth_limitation,upper,22.80468,yes,Measurement exceeded upper threshold
-2026-11-19T05:31:29,20261119_053057_e8281c,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,2.005,Mbps,high_latency,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T05:31:29,20261119_053057_e8281c,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,2.0,Mbps,high_latency,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T05:53:38,20261119_055252_2717c5,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,0.0,Mbps,inter_switch_link_failure,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T05:53:38,20261119_055252_2717c5,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,0.0,Mbps,inter_switch_link_failure,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T05:54:02,20261119_055252_2717c5,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,0.0,Mbps,inter_switch_link_failure,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T05:54:02,20261119_055252_2717c5,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,0.0,Mbps,inter_switch_link_failure,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T05:57:26,20261119_055653_829a69,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,1.935,Mbps,high_latency,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T05:57:26,20261119_055653_829a69,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,1.934,Mbps,high_latency,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T05:57:43,20261119_055653_829a69,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,1.96,Mbps,high_latency,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T05:57:43,20261119_055653_829a69,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,1.961,Mbps,high_latency,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T05:58:00,20261119_055653_829a69,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,1.968,Mbps,high_latency,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T05:58:00,20261119_055653_829a69,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,1.967,Mbps,high_latency,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T06:01:10,20261119_060036_10b93b,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,0.538,Mbps,packet_loss,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T06:01:10,20261119_060036_10b93b,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,0.538,Mbps,packet_loss,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T06:01:30,20261119_060036_10b93b,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,0.468,Mbps,packet_loss,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T06:01:30,20261119_060036_10b93b,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,0.466,Mbps,packet_loss,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T06:01:47,20261119_060036_10b93b,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,0.579,Mbps,packet_loss,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T06:01:47,20261119_060036_10b93b,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,0.583,Mbps,packet_loss,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T06:05:03,20261119_060434_b52346,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,1.79,Mbps,bandwidth_limitation,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T06:05:04,20261119_060434_b52346,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,1.787,Mbps,bandwidth_limitation,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T06:05:19,20261119_060434_b52346,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,1.9,Mbps,bandwidth_limitation,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T06:05:19,20261119_060434_b52346,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,1.905,Mbps,bandwidth_limitation,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T06:05:35,20261119_060434_b52346,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,1.838,Mbps,bandwidth_limitation,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T06:05:35,20261119_060434_b52346,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,1.838,Mbps,bandwidth_limitation,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T08:30:29,20261119_083026_0b07b3,experiment,tcp,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:30:29,20261119_083026_0b07b3,experiment,tcp,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:30:31,20261119_083026_0b07b3,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:30:31,20261119_083026_0b07b3,experiment,tcp,path,Host1->Host4,Host1,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:30:34,20261119_083026_0b07b3,experiment,tcp,path,Host2->Host3,Host2,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:30:34,20261119_083026_0b07b3,experiment,tcp,path,Host2->Host3,Host2,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:30:36,20261119_083026_0b07b3,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:30:36,20261119_083026_0b07b3,experiment,tcp,path,Host2->Host4,Host2,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:30:39,20261119_083026_0b07b3,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:30:39,20261119_083026_0b07b3,experiment,tcp,path,Host3->Host1,Host3,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:30:41,20261119_083026_0b07b3,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:30:41,20261119_083026_0b07b3,experiment,tcp,path,Host3->Host2,Host3,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:30:44,20261119_083026_0b07b3,experiment,tcp,path,Host4->Host1,Host4,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:30:44,20261119_083026_0b07b3,experiment,tcp,path,Host4->Host1,Host4,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:30:46,20261119_083026_0b07b3,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:30:46,20261119_083026_0b07b3,experiment,tcp,path,Host4->Host2,Host4,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:30:47,20261119_083026_0b07b3,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T08:30:47,20261119_083026_0b07b3,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T08:30:48,20261119_083026_0b07b3,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T08:30:48,20261119_083026_0b07b3,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T08:30:53,20261119_083026_0b07b3,experiment,tcp,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:30:53,20261119_083026_0b07b3,experiment,tcp,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:30:55,20261119_083026_0b07b3,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:30:55,20261119_083026_0b07b3,experiment,tcp,path,Host1->Host4,Host1,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:30:58,20261119_083026_0b07b3,experiment,tcp,path,Host2->Host3,Host2,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:30:58,20261119_083026_0b07b3,experiment,tcp,path,Host2->Host3,Host2,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:31:00,20261119_083026_0b07b3,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:00,20261119_083026_0b07b3,experiment,tcp,path,Host2->Host4,Host2,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:31:02,20261119_083026_0b07b3,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:02,20261119_083026_0b07b3,experiment,tcp,path,Host3->Host1,Host3,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:31:04,20261119_083026_0b07b3,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:04,20261119_083026_0b07b3,experiment,tcp,path,Host3->Host2,Host3,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:31:07,20261119_083026_0b07b3,experiment,tcp,path,Host4->Host1,Host4,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:07,20261119_083026_0b07b3,experiment,tcp,path,Host4->Host1,Host4,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:31:09,20261119_083026_0b07b3,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:09,20261119_083026_0b07b3,experiment,tcp,path,Host4->Host2,Host4,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T08:31:11,20261119_083026_0b07b3,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T08:31:11,20261119_083026_0b07b3,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T08:31:11,20261119_083026_0b07b3,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T08:31:11,20261119_083026_0b07b3,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T08:31:20,20261119_083117_2d6f4d,experiment,tcp,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,247.0,ms,high_latency,upper,97.429351,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:21,20261119_083117_2d6f4d,experiment,tcp,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,348.5,ms,high_latency,upper,104.04587,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:21,20261119_083117_2d6f4d,experiment,tcp,path,Host1->Host4,Host1,Host4,,jitter_ms,239.0,ms,high_latency,upper,65.597645,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:23,20261119_083117_2d6f4d,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,351.5,ms,high_latency,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:23,20261119_083117_2d6f4d,experiment,tcp,path,Host2->Host3,Host2,Host3,,jitter_ms,249.0,ms,high_latency,upper,47.136484,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:25,20261119_083117_2d6f4d,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,330.5,ms,high_latency,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:25,20261119_083117_2d6f4d,experiment,tcp,path,Host2->Host4,Host2,Host4,,jitter_ms,231.0,ms,high_latency,upper,33.878173,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:26,20261119_083117_2d6f4d,experiment,tcp,path,Host3->Host1,Host3,Host1,,rtt_avg_ms,244.0,ms,high_latency,upper,95.7685,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:27,20261119_083117_2d6f4d,experiment,tcp,path,Host3->Host2,Host3,Host2,,rtt_avg_ms,237.5,ms,high_latency,upper,57.515488,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:29,20261119_083117_2d6f4d,experiment,tcp,path,Host4->Host1,Host4,Host1,,rtt_avg_ms,246.5,ms,high_latency,upper,99.331096,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:31,20261119_083117_2d6f4d,experiment,tcp,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,231.5,ms,high_latency,upper,44.447909,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:31,20261119_083117_2d6f4d,experiment,tcp,path,Host4->Host2,Host4,Host2,,jitter_ms,25.0,ms,high_latency,upper,23.405377,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:33,20261119_083117_2d6f4d,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.114,%,high_latency,upper,20.110173,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:37,20261119_083117_2d6f4d,experiment,tcp,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,244.0,ms,high_latency,upper,97.429351,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:38,20261119_083117_2d6f4d,experiment,tcp,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,238.5,ms,high_latency,upper,104.04587,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:39,20261119_083117_2d6f4d,experiment,tcp,path,Host2->Host1,Host2,Host1,,jitter_ms,25.4,ms,high_latency,upper,18.347037,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:41,20261119_083117_2d6f4d,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,225.0,ms,high_latency,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:42,20261119_083117_2d6f4d,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,227.5,ms,high_latency,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:43,20261119_083117_2d6f4d,experiment,tcp,path,Host3->Host1,Host3,Host1,,rtt_avg_ms,248.5,ms,high_latency,upper,95.7685,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:44,20261119_083117_2d6f4d,experiment,tcp,path,Host3->Host2,Host3,Host2,,rtt_avg_ms,221.5,ms,high_latency,upper,57.515488,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:47,20261119_083117_2d6f4d,experiment,tcp,path,Host4->Host1,Host4,Host1,,rtt_avg_ms,252.0,ms,high_latency,upper,99.331096,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:48,20261119_083117_2d6f4d,experiment,tcp,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,230.5,ms,high_latency,upper,44.447909,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:50,20261119_083117_2d6f4d,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.136,%,high_latency,upper,20.110173,yes,Measurement exceeded upper threshold
-2026-11-19T08:32:00,20261119_083156_5ed199,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:32:05,20261119_083156_5ed199,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:32:08,20261119_083156_5ed199,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:32:13,20261119_083156_5ed199,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.116,%,packet_loss,upper,20.110173,yes,Measurement exceeded upper threshold
-2026-11-19T08:32:24,20261119_083156_5ed199,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:32:28,20261119_083156_5ed199,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:32:30,20261119_083156_5ed199,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.156,%,packet_loss,upper,20.110173,yes,Measurement exceeded upper threshold
-2026-11-19T08:32:50,20261119_083237_9245d0,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.139,%,bandwidth_limitation,upper,20.110173,yes,Measurement exceeded upper threshold
-2026-11-19T08:33:06,20261119_083237_9245d0,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.183,%,bandwidth_limitation,upper,20.110173,yes,Measurement exceeded upper threshold
 2026-11-19T09:50:53,20261119_095051_d4be1b,experiment,idle,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,307.0,ms,high_latency,upper,1.245113,yes,Measurement exceeded upper threshold
 2026-11-19T09:50:53,20261119_095051_d4be1b,experiment,idle,path,Host1->Host3,Host1,Host3,,jitter_ms,200.0,ms,high_latency,upper,1.487657,yes,Measurement exceeded upper threshold
 2026-11-19T09:50:54,20261119_095051_d4be1b,experiment,idle,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,306.0,ms,high_latency,upper,0.787581,yes,Measurement exceeded upper threshold
@@ -475,77 +244,6 @@ timestamp,experiment_id,mode,traffic_condition,entity_type,entity_name,source_ho
 2026-11-19T09:52:34,20261119_095212_ec12b4,experiment,idle,path,Host2->Host3,Host2,Host3,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
 2026-11-19T09:52:37,20261119_095212_ec12b4,experiment,idle,path,Host3->Host1,Host3,Host1,,packet_loss_pct,100.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
 2026-11-19T09:52:37,20261119_095212_ec12b4,experiment,idle,path,Host3->Host1,Host3,Host1,,path_reachability,0,boolean,packet_loss,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:57:00,20261119_095658_064def,experiment,tcp,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,232.0,ms,high_latency,upper,97.429351,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:01,20261119_095658_064def,experiment,tcp,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,363.0,ms,high_latency,upper,104.04587,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:01,20261119_095658_064def,experiment,tcp,path,Host1->Host4,Host1,Host4,,jitter_ms,246.0,ms,high_latency,upper,65.597645,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:03,20261119_095658_064def,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,335.0,ms,high_latency,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:03,20261119_095658_064def,experiment,tcp,path,Host2->Host3,Host2,Host3,,jitter_ms,222.0,ms,high_latency,upper,47.136484,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:05,20261119_095658_064def,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,344.5,ms,high_latency,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:05,20261119_095658_064def,experiment,tcp,path,Host2->Host4,Host2,Host4,,jitter_ms,251.0,ms,high_latency,upper,33.878173,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:06,20261119_095658_064def,experiment,tcp,path,Host3->Host1,Host3,Host1,,rtt_avg_ms,247.5,ms,high_latency,upper,95.7685,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:07,20261119_095658_064def,experiment,tcp,path,Host3->Host2,Host3,Host2,,rtt_avg_ms,219.5,ms,high_latency,upper,57.515488,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:09,20261119_095658_064def,experiment,tcp,path,Host4->Host1,Host4,Host1,,rtt_avg_ms,249.5,ms,high_latency,upper,99.331096,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:11,20261119_095658_064def,experiment,tcp,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,220.0,ms,high_latency,upper,44.447909,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:11,20261119_095658_064def,experiment,tcp,path,Host4->Host2,Host4,Host2,,jitter_ms,24.0,ms,high_latency,upper,23.405377,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:17,20261119_095658_064def,experiment,tcp,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,245.0,ms,high_latency,upper,97.429351,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:19,20261119_095658_064def,experiment,tcp,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,233.0,ms,high_latency,upper,104.04587,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:21,20261119_095658_064def,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,214.0,ms,high_latency,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:22,20261119_095658_064def,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,224.5,ms,high_latency,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:24,20261119_095658_064def,experiment,tcp,path,Host3->Host1,Host3,Host1,,rtt_avg_ms,239.5,ms,high_latency,upper,95.7685,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:25,20261119_095658_064def,experiment,tcp,path,Host3->Host2,Host3,Host2,,rtt_avg_ms,222.5,ms,high_latency,upper,57.515488,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:27,20261119_095658_064def,experiment,tcp,path,Host4->Host1,Host4,Host1,,rtt_avg_ms,251.5,ms,high_latency,upper,99.331096,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:28,20261119_095658_064def,experiment,tcp,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,219.0,ms,high_latency,upper,44.447909,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:30,20261119_095658_064def,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.167,%,high_latency,upper,20.110173,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:40,20261119_095737_fc82a9,experiment,tcp,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:40,20261119_095737_fc82a9,experiment,tcp,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:57:42,20261119_095737_fc82a9,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:42,20261119_095737_fc82a9,experiment,tcp,path,Host1->Host4,Host1,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:57:45,20261119_095737_fc82a9,experiment,tcp,path,Host2->Host3,Host2,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:45,20261119_095737_fc82a9,experiment,tcp,path,Host2->Host3,Host2,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:57:47,20261119_095737_fc82a9,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:47,20261119_095737_fc82a9,experiment,tcp,path,Host2->Host4,Host2,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:57:49,20261119_095737_fc82a9,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:49,20261119_095737_fc82a9,experiment,tcp,path,Host3->Host1,Host3,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:57:51,20261119_095737_fc82a9,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:51,20261119_095737_fc82a9,experiment,tcp,path,Host3->Host2,Host3,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:57:54,20261119_095737_fc82a9,experiment,tcp,path,Host4->Host1,Host4,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:54,20261119_095737_fc82a9,experiment,tcp,path,Host4->Host1,Host4,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:57:56,20261119_095737_fc82a9,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:57:56,20261119_095737_fc82a9,experiment,tcp,path,Host4->Host2,Host4,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:57:58,20261119_095737_fc82a9,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T09:57:58,20261119_095737_fc82a9,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T09:57:58,20261119_095737_fc82a9,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T09:57:58,20261119_095737_fc82a9,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T09:58:03,20261119_095737_fc82a9,experiment,tcp,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:03,20261119_095737_fc82a9,experiment,tcp,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:58:05,20261119_095737_fc82a9,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:05,20261119_095737_fc82a9,experiment,tcp,path,Host1->Host4,Host1,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:58:08,20261119_095737_fc82a9,experiment,tcp,path,Host2->Host3,Host2,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:08,20261119_095737_fc82a9,experiment,tcp,path,Host2->Host3,Host2,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:58:10,20261119_095737_fc82a9,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:10,20261119_095737_fc82a9,experiment,tcp,path,Host2->Host4,Host2,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:58:12,20261119_095737_fc82a9,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:12,20261119_095737_fc82a9,experiment,tcp,path,Host3->Host1,Host3,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:58:14,20261119_095737_fc82a9,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:14,20261119_095737_fc82a9,experiment,tcp,path,Host3->Host2,Host3,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:58:17,20261119_095737_fc82a9,experiment,tcp,path,Host4->Host1,Host4,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:17,20261119_095737_fc82a9,experiment,tcp,path,Host4->Host1,Host4,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:58:20,20261119_095737_fc82a9,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:20,20261119_095737_fc82a9,experiment,tcp,path,Host4->Host2,Host4,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T09:58:22,20261119_095737_fc82a9,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T09:58:22,20261119_095737_fc82a9,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T09:58:22,20261119_095737_fc82a9,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T09:58:22,20261119_095737_fc82a9,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T09:58:23,20261119_095737_fc82a9,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.201,%,inter_switch_link_failure,upper,20.110173,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:32,20261119_095829_e116f8,experiment,tcp,path,Host1->Host3,Host1,Host3,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:34,20261119_095829_e116f8,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:40,20261119_095829_e116f8,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:42,20261119_095829_e116f8,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:48,20261119_095829_e116f8,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.173,%,packet_loss,upper,20.110173,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:53,20261119_095829_e116f8,experiment,tcp,path,Host1->Host3,Host1,Host3,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:58:59,20261119_095829_e116f8,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T09:59:06,20261119_095829_e116f8,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.196,%,packet_loss,upper,20.110173,yes,Measurement exceeded upper threshold
-2026-11-19T09:59:42,20261119_095912_1c862d,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.232,%,bandwidth_limitation,upper,20.110173,yes,Measurement exceeded upper threshold
 2026-11-19T10:02:36,20261119_100234_ba0998,experiment,idle,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,306.5,ms,high_latency,upper,1.245113,yes,Measurement exceeded upper threshold
 2026-11-19T10:02:36,20261119_100234_ba0998,experiment,idle,path,Host1->Host3,Host1,Host3,,jitter_ms,217.0,ms,high_latency,upper,1.487657,yes,Measurement exceeded upper threshold
 2026-11-19T10:02:37,20261119_100234_ba0998,experiment,idle,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,298.5,ms,high_latency,upper,0.787581,yes,Measurement exceeded upper threshold
@@ -580,25 +278,6 @@ timestamp,experiment_id,mode,traffic_condition,entity_type,entity_name,source_ho
 2026-11-19T10:03:02,20261119_100234_ba0998,experiment,idle,path,Host4->Host1,Host4,Host1,,jitter_ms,11.0,ms,high_latency,upper,1.125295,yes,Measurement exceeded upper threshold
 2026-11-19T10:03:03,20261119_100234_ba0998,experiment,idle,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,210.5,ms,high_latency,upper,0.885637,yes,Measurement exceeded upper threshold
 2026-11-19T10:03:03,20261119_100234_ba0998,experiment,idle,path,Host4->Host2,Host4,Host2,,jitter_ms,17.0,ms,high_latency,upper,1.008127,yes,Measurement exceeded upper threshold
-2026-11-19T10:03:55,20261119_100353_1fcdc7,experiment,tcp,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,239.5,ms,high_latency,upper,97.429351,yes,Measurement exceeded upper threshold
-2026-11-19T10:03:56,20261119_100353_1fcdc7,experiment,tcp,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,344.5,ms,high_latency,upper,104.04587,yes,Measurement exceeded upper threshold
-2026-11-19T10:03:56,20261119_100353_1fcdc7,experiment,tcp,path,Host1->Host4,Host1,Host4,,jitter_ms,229.0,ms,high_latency,upper,65.597645,yes,Measurement exceeded upper threshold
-2026-11-19T10:03:58,20261119_100353_1fcdc7,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,353.5,ms,high_latency,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T10:03:58,20261119_100353_1fcdc7,experiment,tcp,path,Host2->Host3,Host2,Host3,,jitter_ms,237.0,ms,high_latency,upper,47.136484,yes,Measurement exceeded upper threshold
-2026-11-19T10:04:00,20261119_100353_1fcdc7,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,345.5,ms,high_latency,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T10:04:00,20261119_100353_1fcdc7,experiment,tcp,path,Host2->Host4,Host2,Host4,,jitter_ms,235.0,ms,high_latency,upper,33.878173,yes,Measurement exceeded upper threshold
-2026-11-19T10:04:01,20261119_100353_1fcdc7,experiment,tcp,path,Host3->Host1,Host3,Host1,,rtt_avg_ms,247.0,ms,high_latency,upper,95.7685,yes,Measurement exceeded upper threshold
-2026-11-19T10:04:02,20261119_100353_1fcdc7,experiment,tcp,path,Host3->Host2,Host3,Host2,,rtt_avg_ms,214.5,ms,high_latency,upper,57.515488,yes,Measurement exceeded upper threshold
-2026-11-19T10:04:04,20261119_100353_1fcdc7,experiment,tcp,path,Host4->Host1,Host4,Host1,,rtt_avg_ms,237.0,ms,high_latency,upper,99.331096,yes,Measurement exceeded upper threshold
-2026-11-19T10:04:06,20261119_100353_1fcdc7,experiment,tcp,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,222.0,ms,high_latency,upper,44.447909,yes,Measurement exceeded upper threshold
-2026-11-19T10:04:12,20261119_100353_1fcdc7,experiment,tcp,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,254.5,ms,high_latency,upper,97.429351,yes,Measurement exceeded upper threshold
-2026-11-19T10:04:13,20261119_100353_1fcdc7,experiment,tcp,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,230.0,ms,high_latency,upper,104.04587,yes,Measurement exceeded upper threshold
-2026-11-19T10:04:15,20261119_100353_1fcdc7,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,232.0,ms,high_latency,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T10:04:17,20261119_100353_1fcdc7,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,207.5,ms,high_latency,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T10:04:18,20261119_100353_1fcdc7,experiment,tcp,path,Host3->Host1,Host3,Host1,,rtt_avg_ms,262.5,ms,high_latency,upper,95.7685,yes,Measurement exceeded upper threshold
-2026-11-19T10:04:19,20261119_100353_1fcdc7,experiment,tcp,path,Host3->Host2,Host3,Host2,,rtt_avg_ms,234.0,ms,high_latency,upper,57.515488,yes,Measurement exceeded upper threshold
-2026-11-19T10:04:21,20261119_100353_1fcdc7,experiment,tcp,path,Host4->Host1,Host4,Host1,,rtt_avg_ms,243.5,ms,high_latency,upper,99.331096,yes,Measurement exceeded upper threshold
-2026-11-19T10:04:23,20261119_100353_1fcdc7,experiment,tcp,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,213.5,ms,high_latency,upper,44.447909,yes,Measurement exceeded upper threshold
 2026-11-19T10:05:34,20261119_100530_eecaa2,experiment,idle,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
 2026-11-19T10:05:34,20261119_100530_eecaa2,experiment,idle,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
 2026-11-19T10:05:36,20261119_100530_eecaa2,experiment,idle,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
@@ -640,46 +319,6 @@ timestamp,experiment_id,mode,traffic_condition,entity_type,entity_name,source_ho
 2026-11-19T10:06:14,20261119_100530_eecaa2,experiment,idle,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
 2026-11-19T10:06:15,20261119_100530_eecaa2,experiment,idle,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
 2026-11-19T10:06:15,20261119_100530_eecaa2,experiment,idle,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T10:09:55,20261119_100951_ed9a19,experiment,tcp,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:09:55,20261119_100951_ed9a19,experiment,tcp,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:09:57,20261119_100951_ed9a19,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:09:57,20261119_100951_ed9a19,experiment,tcp,path,Host1->Host4,Host1,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:00,20261119_100951_ed9a19,experiment,tcp,path,Host2->Host3,Host2,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:10:00,20261119_100951_ed9a19,experiment,tcp,path,Host2->Host3,Host2,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:02,20261119_100951_ed9a19,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:10:02,20261119_100951_ed9a19,experiment,tcp,path,Host2->Host4,Host2,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:04,20261119_100951_ed9a19,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:10:04,20261119_100951_ed9a19,experiment,tcp,path,Host3->Host1,Host3,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:06,20261119_100951_ed9a19,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:10:06,20261119_100951_ed9a19,experiment,tcp,path,Host3->Host2,Host3,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:09,20261119_100951_ed9a19,experiment,tcp,path,Host4->Host1,Host4,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:10:09,20261119_100951_ed9a19,experiment,tcp,path,Host4->Host1,Host4,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:11,20261119_100951_ed9a19,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:10:11,20261119_100951_ed9a19,experiment,tcp,path,Host4->Host2,Host4,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:12,20261119_100951_ed9a19,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T10:10:12,20261119_100951_ed9a19,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T10:10:13,20261119_100951_ed9a19,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T10:10:13,20261119_100951_ed9a19,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T10:10:18,20261119_100951_ed9a19,experiment,tcp,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:10:18,20261119_100951_ed9a19,experiment,tcp,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:20,20261119_100951_ed9a19,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:10:20,20261119_100951_ed9a19,experiment,tcp,path,Host1->Host4,Host1,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:23,20261119_100951_ed9a19,experiment,tcp,path,Host2->Host3,Host2,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:10:23,20261119_100951_ed9a19,experiment,tcp,path,Host2->Host3,Host2,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:25,20261119_100951_ed9a19,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:10:25,20261119_100951_ed9a19,experiment,tcp,path,Host2->Host4,Host2,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:27,20261119_100951_ed9a19,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:10:27,20261119_100951_ed9a19,experiment,tcp,path,Host3->Host1,Host3,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:29,20261119_100951_ed9a19,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:10:29,20261119_100951_ed9a19,experiment,tcp,path,Host3->Host2,Host3,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:32,20261119_100951_ed9a19,experiment,tcp,path,Host4->Host1,Host4,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:10:32,20261119_100951_ed9a19,experiment,tcp,path,Host4->Host1,Host4,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:34,20261119_100951_ed9a19,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:10:34,20261119_100951_ed9a19,experiment,tcp,path,Host4->Host2,Host4,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:10:36,20261119_100951_ed9a19,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T10:10:36,20261119_100951_ed9a19,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T10:10:36,20261119_100951_ed9a19,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T10:10:36,20261119_100951_ed9a19,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
 2026-11-19T10:16:45,20261119_101644_ec1295,experiment,idle,path,Host1->Host2,Host1,Host2,,jitter_ms,1.549,ms,packet_loss,upper,1.087552,yes,Measurement exceeded upper threshold
 2026-11-19T10:16:46,20261119_101644_ec1295,experiment,idle,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,514.507,ms,packet_loss,upper,1.245113,yes,Measurement exceeded upper threshold
 2026-11-19T10:16:46,20261119_101644_ec1295,experiment,idle,path,Host1->Host3,Host1,Host3,,jitter_ms,1028.986,ms,packet_loss,upper,1.487657,yes,Measurement exceeded upper threshold
@@ -702,12 +341,6 @@ timestamp,experiment_id,mode,traffic_condition,entity_type,entity_name,source_ho
 2026-11-19T10:17:09,20261119_101644_ec1295,experiment,idle,path,Host2->Host4,Host2,Host4,,jitter_ms,2.854,ms,packet_loss,upper,1.058438,yes,Measurement exceeded upper threshold
 2026-11-19T10:17:13,20261119_101644_ec1295,experiment,idle,path,Host3->Host4,Host3,Host4,,rtt_avg_ms,1.065,ms,packet_loss,upper,0.831969,yes,Measurement exceeded upper threshold
 2026-11-19T10:17:13,20261119_101644_ec1295,experiment,idle,path,Host3->Host4,Host3,Host4,,jitter_ms,1.95,ms,packet_loss,upper,0.927768,yes,Measurement exceeded upper threshold
-2026-11-19T10:21:44,20261119_102137_9931d1,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,54.2,ms,packet_loss,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T10:21:44,20261119_102137_9931d1,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:22:02,20261119_102137_9931d1,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:22:07,20261119_102137_9931d1,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:22:10,20261119_102137_9931d1,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.114,%,packet_loss,upper,20.110173,yes,Measurement exceeded upper threshold
-2026-11-19T10:24:17,20261119_102404_5fe391,experiment,tcp,path,Host4->Host3,Host4,Host3,,jitter_ms,15.6,ms,bandwidth_limitation,upper,15.106831,yes,Measurement exceeded upper threshold
 2026-11-19T10:27:37,20261119_102734_48abff,experiment,idle,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
 2026-11-19T10:27:37,20261119_102734_48abff,experiment,idle,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
 2026-11-19T10:27:39,20261119_102734_48abff,experiment,idle,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
@@ -793,47 +426,6 @@ timestamp,experiment_id,mode,traffic_condition,entity_type,entity_name,source_ho
 2026-11-19T10:29:59,20261119_102914_c80cbb,experiment,idle,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
 2026-11-19T10:29:59,20261119_102914_c80cbb,experiment,idle,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
 2026-11-19T10:29:59,20261119_102914_c80cbb,experiment,idle,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T10:30:35,20261119_103032_81ba26,experiment,tcp,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:30:35,20261119_103032_81ba26,experiment,tcp,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:30:37,20261119_103032_81ba26,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:30:37,20261119_103032_81ba26,experiment,tcp,path,Host1->Host4,Host1,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:30:40,20261119_103032_81ba26,experiment,tcp,path,Host2->Host3,Host2,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:30:40,20261119_103032_81ba26,experiment,tcp,path,Host2->Host3,Host2,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:30:42,20261119_103032_81ba26,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:30:42,20261119_103032_81ba26,experiment,tcp,path,Host2->Host4,Host2,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:30:45,20261119_103032_81ba26,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:30:45,20261119_103032_81ba26,experiment,tcp,path,Host3->Host1,Host3,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:30:47,20261119_103032_81ba26,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:30:47,20261119_103032_81ba26,experiment,tcp,path,Host3->Host2,Host3,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:30:50,20261119_103032_81ba26,experiment,tcp,path,Host4->Host1,Host4,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:30:50,20261119_103032_81ba26,experiment,tcp,path,Host4->Host1,Host4,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:30:52,20261119_103032_81ba26,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:30:52,20261119_103032_81ba26,experiment,tcp,path,Host4->Host2,Host4,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:30:53,20261119_103032_81ba26,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T10:30:53,20261119_103032_81ba26,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T10:30:53,20261119_103032_81ba26,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T10:30:53,20261119_103032_81ba26,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T10:30:59,20261119_103032_81ba26,experiment,tcp,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:30:59,20261119_103032_81ba26,experiment,tcp,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:31:01,20261119_103032_81ba26,experiment,tcp,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:31:01,20261119_103032_81ba26,experiment,tcp,path,Host1->Host4,Host1,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:31:04,20261119_103032_81ba26,experiment,tcp,path,Host2->Host3,Host2,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:31:04,20261119_103032_81ba26,experiment,tcp,path,Host2->Host3,Host2,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:31:06,20261119_103032_81ba26,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:31:06,20261119_103032_81ba26,experiment,tcp,path,Host2->Host4,Host2,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:31:08,20261119_103032_81ba26,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:31:08,20261119_103032_81ba26,experiment,tcp,path,Host3->Host1,Host3,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:31:10,20261119_103032_81ba26,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:31:10,20261119_103032_81ba26,experiment,tcp,path,Host3->Host2,Host3,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:31:13,20261119_103032_81ba26,experiment,tcp,path,Host4->Host1,Host4,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:31:13,20261119_103032_81ba26,experiment,tcp,path,Host4->Host1,Host4,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:31:15,20261119_103032_81ba26,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:31:15,20261119_103032_81ba26,experiment,tcp,path,Host4->Host2,Host4,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:31:17,20261119_103032_81ba26,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T10:31:17,20261119_103032_81ba26,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T10:31:17,20261119_103032_81ba26,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
-2026-11-19T10:31:17,20261119_103032_81ba26,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
-2026-11-19T10:31:17,20261119_103032_81ba26,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.228,%,inter_switch_link_failure,upper,20.110173,yes,Measurement exceeded upper threshold
 2026-11-19T10:34:32,20261119_103431_ab60a2,experiment,idle,path,Host1->Host2,Host1,Host2,,jitter_ms,1.248,ms,high_latency,upper,1.087552,yes,Measurement exceeded upper threshold
 2026-11-19T10:34:34,20261119_103431_ab60a2,experiment,idle,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,321.0,ms,high_latency,upper,1.245113,yes,Measurement exceeded upper threshold
 2026-11-19T10:34:34,20261119_103431_ab60a2,experiment,idle,path,Host1->Host3,Host1,Host3,,jitter_ms,210.0,ms,high_latency,upper,1.487657,yes,Measurement exceeded upper threshold
@@ -901,40 +493,6 @@ timestamp,experiment_id,mode,traffic_condition,entity_type,entity_name,source_ho
 2026-11-19T10:41:11,20261119_104042_cb9cc7,experiment,idle,path,Host4->Host1,Host4,Host1,,jitter_ms,3.0,ms,high_latency,upper,1.125295,yes,Measurement exceeded upper threshold
 2026-11-19T10:41:12,20261119_104042_cb9cc7,experiment,idle,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,203.0,ms,high_latency,upper,0.885637,yes,Measurement exceeded upper threshold
 2026-11-19T10:41:12,20261119_104042_cb9cc7,experiment,idle,path,Host4->Host2,Host4,Host2,,jitter_ms,8.0,ms,high_latency,upper,1.008127,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:34,20261119_104332_2c0f40,experiment,tcp,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,253.0,ms,bandwidth_limitation,upper,97.429351,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:35,20261119_104332_2c0f40,experiment,tcp,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,444.5,ms,bandwidth_limitation,upper,104.04587,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:35,20261119_104332_2c0f40,experiment,tcp,path,Host1->Host4,Host1,Host4,,jitter_ms,345.0,ms,bandwidth_limitation,upper,65.597645,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:38,20261119_104332_2c0f40,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,429.0,ms,bandwidth_limitation,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:38,20261119_104332_2c0f40,experiment,tcp,path,Host2->Host3,Host2,Host3,,jitter_ms,350.0,ms,bandwidth_limitation,upper,47.136484,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:39,20261119_104332_2c0f40,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,391.0,ms,bandwidth_limitation,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:39,20261119_104332_2c0f40,experiment,tcp,path,Host2->Host4,Host2,Host4,,jitter_ms,250.0,ms,bandwidth_limitation,upper,33.878173,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:40,20261119_104332_2c0f40,experiment,tcp,path,Host3->Host1,Host3,Host1,,rtt_avg_ms,287.0,ms,bandwidth_limitation,upper,95.7685,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:42,20261119_104332_2c0f40,experiment,tcp,path,Host3->Host2,Host3,Host2,,rtt_avg_ms,298.5,ms,bandwidth_limitation,upper,57.515488,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:44,20261119_104332_2c0f40,experiment,tcp,path,Host4->Host1,Host4,Host1,,rtt_avg_ms,273.5,ms,bandwidth_limitation,upper,99.331096,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:44,20261119_104332_2c0f40,experiment,tcp,path,Host4->Host1,Host4,Host1,,jitter_ms,95.0,ms,bandwidth_limitation,upper,23.218589,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:45,20261119_104332_2c0f40,experiment,tcp,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,241.5,ms,bandwidth_limitation,upper,44.447909,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:45,20261119_104332_2c0f40,experiment,tcp,path,Host4->Host2,Host4,Host2,,jitter_ms,103.0,ms,bandwidth_limitation,upper,23.405377,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:52,20261119_104332_2c0f40,experiment,tcp,path,Host1->Host3,Host1,Host3,,rtt_avg_ms,243.5,ms,bandwidth_limitation,upper,97.429351,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:52,20261119_104332_2c0f40,experiment,tcp,path,Host1->Host3,Host1,Host3,,jitter_ms,25.0,ms,bandwidth_limitation,upper,19.538169,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:53,20261119_104332_2c0f40,experiment,tcp,path,Host1->Host4,Host1,Host4,,rtt_avg_ms,313.0,ms,bandwidth_limitation,upper,104.04587,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:55,20261119_104332_2c0f40,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,239.0,ms,bandwidth_limitation,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:56,20261119_104332_2c0f40,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,296.0,ms,bandwidth_limitation,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:58,20261119_104332_2c0f40,experiment,tcp,path,Host3->Host1,Host3,Host1,,rtt_avg_ms,282.0,ms,bandwidth_limitation,upper,95.7685,yes,Measurement exceeded upper threshold
-2026-11-19T10:43:59,20261119_104332_2c0f40,experiment,tcp,path,Host3->Host2,Host3,Host2,,rtt_avg_ms,293.5,ms,bandwidth_limitation,upper,57.515488,yes,Measurement exceeded upper threshold
-2026-11-19T10:44:01,20261119_104332_2c0f40,experiment,tcp,path,Host4->Host1,Host4,Host1,,rtt_avg_ms,242.5,ms,bandwidth_limitation,upper,99.331096,yes,Measurement exceeded upper threshold
-2026-11-19T10:44:03,20261119_104332_2c0f40,experiment,tcp,path,Host4->Host2,Host4,Host2,,rtt_avg_ms,309.5,ms,bandwidth_limitation,upper,44.447909,yes,Measurement exceeded upper threshold
-2026-11-19T10:44:04,20261119_104332_2c0f40,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.186,%,bandwidth_limitation,upper,20.110173,yes,Measurement exceeded upper threshold
-2026-11-19T10:45:38,20261119_104533_0c010b,experiment,tcp,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,561.45,ms,packet_loss,upper,59.475236,yes,Measurement exceeded upper threshold
-2026-11-19T10:45:38,20261119_104533_0c010b,experiment,tcp,path,Host2->Host3,Host2,Host3,,jitter_ms,1003.1,ms,packet_loss,upper,47.136484,yes,Measurement exceeded upper threshold
-2026-11-19T10:45:39,20261119_104533_0c010b,experiment,tcp,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,42.9,ms,packet_loss,upper,41.28004,yes,Measurement exceeded upper threshold
-2026-11-19T10:45:39,20261119_104533_0c010b,experiment,tcp,path,Host2->Host4,Host2,Host4,,jitter_ms,38.6,ms,packet_loss,upper,33.878173,yes,Measurement exceeded upper threshold
-2026-11-19T10:45:41,20261119_104533_0c010b,experiment,tcp,path,Host3->Host1,Host3,Host1,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:45:44,20261119_104533_0c010b,experiment,tcp,path,Host3->Host2,Host3,Host2,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:45:47,20261119_104533_0c010b,experiment,tcp,path,Host4->Host1,Host4,Host1,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:45:49,20261119_104533_0c010b,experiment,tcp,path,Host4->Host2,Host4,Host2,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:46:00,20261119_104533_0c010b,experiment,tcp,path,Host2->Host4,Host2,Host4,,packet_loss_pct,100.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T10:46:00,20261119_104533_0c010b,experiment,tcp,path,Host2->Host4,Host2,Host4,,path_reachability,0,boolean,packet_loss,direct_rule,,yes,path_reachability indicates a down or failed state
-2026-11-19T10:46:08,20261119_104533_0c010b,experiment,tcp,vm,Ubuntu-VM,,,,memory_usage_pct,20.117,%,packet_loss,upper,20.110173,yes,Measurement exceeded upper threshold
 2026-11-19T10:46:59,20261119_104656_f8ca56,experiment,idle,path,Host1->Host4,Host1,Host4,,jitter_ms,1.082,ms,packet_loss,upper,0.870453,yes,Measurement exceeded upper threshold
 2026-11-19T10:47:01,20261119_104656_f8ca56,experiment,idle,path,Host2->Host3,Host2,Host3,,rtt_avg_ms,1.4,ms,packet_loss,upper,1.252038,yes,Measurement exceeded upper threshold
 2026-11-19T10:47:01,20261119_104656_f8ca56,experiment,idle,path,Host2->Host3,Host2,Host3,,jitter_ms,2.66,ms,packet_loss,upper,1.531584,yes,Measurement exceeded upper threshold
@@ -971,33 +529,26 @@ timestamp,experiment_id,mode,traffic_condition,entity_type,entity_name,source_ho
 2026-11-19T10:53:27,20261119_105257_b6bedf,experiment,idle,path,Host2->Host4,Host2,Host4,,rtt_avg_ms,3.59,ms,packet_loss,upper,0.933161,yes,Measurement exceeded upper threshold
 2026-11-19T10:53:27,20261119_105257_b6bedf,experiment,idle,path,Host2->Host4,Host2,Host4,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
 2026-11-19T10:53:33,20261119_105257_b6bedf,experiment,idle,path,Host4->Host1,Host4,Host1,,packet_loss_pct,50.0,%,packet_loss,upper,0.0,yes,Measurement exceeded upper threshold
-2026-11-19T08:31:11,20261119_083026_0b07b3,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,0.0,Mbps,inter_switch_link_failure,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T08:31:11,20261119_083026_0b07b3,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,0.0,Mbps,inter_switch_link_failure,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T08:31:50,20261119_083117_2d6f4d,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,1.964,Mbps,high_latency,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T08:31:50,20261119_083117_2d6f4d,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,1.963,Mbps,high_latency,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T08:32:30,20261119_083156_5ed199,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,0.582,Mbps,packet_loss,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T08:32:30,20261119_083156_5ed199,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,0.582,Mbps,packet_loss,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T08:33:06,20261119_083237_9245d0,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,1.828,Mbps,bandwidth_limitation,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T08:33:06,20261119_083237_9245d0,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,1.839,Mbps,bandwidth_limitation,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T09:57:30,20261119_095658_064def,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,1.967,Mbps,high_latency,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T09:57:30,20261119_095658_064def,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,1.969,Mbps,high_latency,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T09:58:22,20261119_095737_fc82a9,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,0.0,Mbps,inter_switch_link_failure,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T09:58:22,20261119_095737_fc82a9,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,0.0,Mbps,inter_switch_link_failure,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T09:59:05,20261119_095829_e116f8,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,0.52,Mbps,packet_loss,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T09:59:06,20261119_095829_e116f8,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,0.518,Mbps,packet_loss,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T09:59:41,20261119_095912_1c862d,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,1.882,Mbps,bandwidth_limitation,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T09:59:41,20261119_095912_1c862d,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,1.881,Mbps,bandwidth_limitation,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T10:04:24,20261119_100353_1fcdc7,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,2.065,Mbps,high_latency,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T10:04:24,20261119_100353_1fcdc7,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,2.06,Mbps,high_latency,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T10:10:36,20261119_100951_ed9a19,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,0.0,Mbps,inter_switch_link_failure,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T10:10:36,20261119_100951_ed9a19,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,0.0,Mbps,inter_switch_link_failure,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T10:22:09,20261119_102137_9931d1,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,0.543,Mbps,packet_loss,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T10:22:10,20261119_102137_9931d1,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,0.545,Mbps,packet_loss,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T10:24:33,20261119_102404_5fe391,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,1.892,Mbps,bandwidth_limitation,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T10:24:33,20261119_102404_5fe391,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,1.891,Mbps,bandwidth_limitation,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T10:31:17,20261119_103032_81ba26,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,0.0,Mbps,inter_switch_link_failure,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T10:31:17,20261119_103032_81ba26,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,0.0,Mbps,inter_switch_link_failure,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T10:44:04,20261119_104332_2c0f40,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,4.774,Mbps,bandwidth_limitation,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T10:44:04,20261119_104332_2c0f40,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,4.804,Mbps,bandwidth_limitation,lower,8.108688,yes,Measurement fell below lower threshold
-2026-11-19T10:46:07,20261119_104533_0c010b,experiment,tcp,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,throughput_mbps,0.609,Mbps,packet_loss,lower,8.109491,yes,Measurement fell below lower threshold
-2026-11-19T10:46:07,20261119_104533_0c010b,experiment,tcp,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,throughput_mbps,0.604,Mbps,packet_loss,lower,8.108688,yes,Measurement fell below lower threshold
+2026-11-19T12:24:45,20261119_122444_0c24de,experiment,idle,path,Host1->Host2,Host1,Host2,,jitter_ms,1.192,ms,inter_switch_link_failure,upper,1.087552,yes,Measurement exceeded upper threshold
+2026-11-19T12:24:47,20261119_122444_0c24de,experiment,idle,path,Host1->Host3,Host1,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
+2026-11-19T12:24:47,20261119_122444_0c24de,experiment,idle,path,Host1->Host3,Host1,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
+2026-11-19T12:24:49,20261119_122444_0c24de,experiment,idle,path,Host1->Host4,Host1,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
+2026-11-19T12:24:49,20261119_122444_0c24de,experiment,idle,path,Host1->Host4,Host1,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
+2026-11-19T12:24:52,20261119_122444_0c24de,experiment,idle,path,Host2->Host3,Host2,Host3,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
+2026-11-19T12:24:52,20261119_122444_0c24de,experiment,idle,path,Host2->Host3,Host2,Host3,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
+2026-11-19T12:24:55,20261119_122444_0c24de,experiment,idle,path,Host2->Host4,Host2,Host4,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
+2026-11-19T12:24:55,20261119_122444_0c24de,experiment,idle,path,Host2->Host4,Host2,Host4,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
+2026-11-19T12:24:57,20261119_122444_0c24de,experiment,idle,path,Host3->Host1,Host3,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
+2026-11-19T12:24:57,20261119_122444_0c24de,experiment,idle,path,Host3->Host1,Host3,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
+2026-11-19T12:24:59,20261119_122444_0c24de,experiment,idle,path,Host3->Host2,Host3,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
+2026-11-19T12:24:59,20261119_122444_0c24de,experiment,idle,path,Host3->Host2,Host3,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
+2026-11-19T12:25:02,20261119_122444_0c24de,experiment,idle,path,Host4->Host1,Host4,Host1,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
+2026-11-19T12:25:02,20261119_122444_0c24de,experiment,idle,path,Host4->Host1,Host4,Host1,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
+2026-11-19T12:25:04,20261119_122444_0c24de,experiment,idle,path,Host4->Host2,Host4,Host2,,packet_loss_pct,100.0,%,inter_switch_link_failure,upper,0.0,yes,Measurement exceeded upper threshold
+2026-11-19T12:25:04,20261119_122444_0c24de,experiment,idle,path,Host4->Host2,Host4,Host2,,path_reachability,0,boolean,inter_switch_link_failure,direct_rule,,yes,path_reachability indicates a down or failed state
+2026-11-19T12:25:05,20261119_122444_0c24de,experiment,idle,path,Host4->Host3,Host4,Host3,,rtt_avg_ms,0.6895,ms,inter_switch_link_failure,upper,0.341015,yes,Measurement exceeded upper threshold
+2026-11-19T12:25:05,20261119_122444_0c24de,experiment,idle,path,Host4->Host3,Host4,Host3,,jitter_ms,1.241,ms,inter_switch_link_failure,upper,0.346948,yes,Measurement exceeded upper threshold
+2026-11-19T12:25:05,20261119_122444_0c24de,experiment,idle,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
+2026-11-19T12:25:05,20261119_122444_0c24de,experiment,idle,switch_port,Switch1:Switch1-eth3,,,Switch1-eth3,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state
+2026-11-19T12:25:06,20261119_122444_0c24de,experiment,idle,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,admin_status,0,boolean,inter_switch_link_failure,direct_rule,,yes,admin_status indicates a down or failed state
+2026-11-19T12:25:06,20261119_122444_0c24de,experiment,idle,switch_port,Switch2:Switch2-eth1,,,Switch2-eth1,oper_status,down,state,inter_switch_link_failure,direct_rule,,yes,oper_status indicates a down or failed state

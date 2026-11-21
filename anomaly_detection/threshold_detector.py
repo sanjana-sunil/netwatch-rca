@@ -8,7 +8,7 @@ THRESHOLD_FILE = Path("data/thresholds.csv")
 EXPERIMENT_FILE = Path("data/experiments.csv")
 OUTPUT_FILE = Path("data/anomalies.csv")
 
-SUPPORTED_CONDITIONS = {"idle", "tcp"}
+SUPPORTED_CONDITIONS = {"idle"}
 
 STATUS_METRICS = {
     "path_reachability",
@@ -102,14 +102,13 @@ def detect_anomalies():
         for row in reader:
 
             traffic_condition = (
-                (row.get("traffic_condition") or "").strip() or "idle"
-            )
+                row.get("traffic_condition") or ""
+            ).strip()
 
-            # Exclude UDP and unsupported conditions.
+# Process only explicitly labelled idle experiments.
             if traffic_condition not in SUPPORTED_CONDITIONS:
                 skipped["unsupported traffic condition"] += 1
                 continue
-
             metric = (row.get("metric_name") or "").strip()
             raw_value = (row.get("metric_value") or "").strip()
 

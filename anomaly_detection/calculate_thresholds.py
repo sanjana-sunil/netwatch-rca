@@ -5,7 +5,6 @@ from collections import defaultdict
 
 BASELINE_FILES = {
     "idle": "data/baseline.csv",
-    "tcp": "data/loaded_baseline.csv",
 }
 
 OUTPUT_FILE = "data/thresholds.csv"
@@ -14,11 +13,12 @@ METRIC_DIRECTIONS = {
     "rtt_avg_ms": "upper",
     "jitter_ms": "upper",
     "packet_loss_pct": "upper",
-    "throughput_mbps": "lower",
     "cpu_usage_pct": "upper",
     "memory_usage_pct": "upper",
-    }
-
+}
+EXCLUDED_METRICS = {
+    "throughput_mbps",
+}
 
 def load_baseline():
     """Load healthy measurements grouped by traffic condition,
@@ -33,11 +33,13 @@ def load_baseline():
             reader = csv.DictReader(file)
 
             for row in reader:
-                metric = row["metric_name"]
+                metric = (row.get("metric_name") or "").strip()
 
                 if metric not in METRIC_DIRECTIONS:
                     continue
-
+                if metric in EXCLUDED_METRICS:
+                    skipped["excluded metric"] += 1
+                    continue
                 value = row["metric_value"].strip()
 
                 # Ignore missing measurements.

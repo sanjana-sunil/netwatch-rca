@@ -113,7 +113,7 @@ def collect_path_metrics(net, experiment_id, mode, fault_type, traffic_condition
             measurement = collect_ping(
                 hosts[source_name],
                 hosts[destination_name],
-                count=2,
+                count=5,
             )
 
             values = [
@@ -635,6 +635,7 @@ def append_measurements(csv_file, rows):
 
 
 
+
 def collect_throughput_metrics(net, experiment_id, mode, fault_type, traffic_condition):
 
     rows = []
@@ -650,20 +651,28 @@ def collect_throughput_metrics(net, experiment_id, mode, fault_type, traffic_con
         client = None
 
         try:
-            # Start a one-off iperf3 server.
+            # 1. Start iperf3 server.
             server = destination.popen(
                 ["iperf3", "-s", "-1", "-p", str(IPERF_PORT)],
-                stdout=subprocess.DEVNULL,
+                stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 text=True,
             )
 
-            time.sleep(0.5)
+            time.sleep(1)
 
-            # Start the iperf3 client asynchronously.
+            # Check whether server started successfully.
+            if server.poll() is not None:
+                server_output, server_error = server.communicate()
+                raise RuntimeError(
+                    f"Server failed: {server_error.strip()}"
+                )
+
+            # 2. Start iperf3 client.
             client = source.popen(
                 [
-                    "iperf3", "-c", destination.IP(),
+                    "iperf3",
+                    "-c", destination.IP(),
                     "-p", str(IPERF_PORT),
                     "-t", str(IPERF_DURATION),
                     "-J",
@@ -674,42 +683,25 @@ def collect_throughput_metrics(net, experiment_id, mode, fault_type, traffic_con
             )
 
             print(
-                f"Measuring traffic during "
-                f"{source_name} -> {destination_name}"
+                f"Measuring throughput: "
+                f"{source_name} -> {destination_name}",
+                flush=True,
             )
 
-            # Collect interface metrics while iperf3 is running.
-            while client.poll() is None:
-
-                rows.extend(
-                    collect_host_interface_metrics(
-                        net, experiment_id, mode, fault_type, traffic_condition
-                    )
-                )
-
-                rows.extend(
-                    collect_switch_port_metrics(
-                        net, experiment_id, mode, fault_type, traffic_condition
-                    )
-                )
-
-                time.sleep(INTERVAL)
-
-            # Retrieve client output after completion.
-            output, client_error = client.communicate()
-
-            # Wait for the one-off server to finish.
-            server.wait(timeout=IPERF_DURATION + 5)
+            # 3. Wait for the client to finish.
+            output, client_error = client.communicate(
+                timeout=IPERF_DURATION + 15
+            )
 
             if client.returncode != 0:
                 raise RuntimeError(client_error.strip())
 
+            # 4. Parse receiver-side throughput.
             result = json.loads(output)
 
             if result.get("error"):
                 raise ValueError(result["error"])
 
-            # Extract receiver-side throughput.
             bits_per_second = (
                 result["end"]["sum_received"]["bits_per_second"]
             )
@@ -719,16 +711,26 @@ def collect_throughput_metrics(net, experiment_id, mode, fault_type, traffic_con
                 3,
             )
 
+            print(
+                f"{source_name} -> {destination_name}: "
+                f"{throughput} Mbps",
+                flush=True,
+            )
+
+            # Wait for the one-off server to finish.
+            server.wait(timeout=IPERF_DURATION + 5)
+
         except Exception as error:
 
             print(
                 f"Throughput test failed: "
-                f"{source_name}->{destination_name}: {error}"
+                f"{source_name}->{destination_name}: {error}",
+                flush=True,
             )
 
         finally:
 
-            # Clean up any remaining processes.
+            # 5. Clean up remaining processes.
             if client is not None and client.poll() is None:
                 client.kill()
                 client.wait()
@@ -737,7 +739,78 @@ def collect_throughput_metrics(net, experiment_id, mode, fault_type, traffic_con
                 server.kill()
                 server.wait()
 
-        # Save the throughput measurement.
+        # 6. Save the throughput measurement.
+        rows.append(
+            make_row(
+                entity_type="path",
+                entity_name=f"{source_name}->{destination_name}",
+                metric_name="throughput_mbps",
+                value=throughput,
+                unit="Mbps",
+                source=source_name,
+                destination=destination_name,
+                experiment_id=experiment_id,
+                mode=mode,
+                fault_type=fault_type,
+                traffic_condition=traffic_condition,
+            )
+        )
+
+    return rows
+
+
+def collect_background_throughput_metrics(
+    background_clients,
+    experiment_id,
+    mode,
+    fault_type,
+    traffic_condition,
+):
+    rows = []
+
+    for (source_name, destination_name), client in zip(
+        THROUGHPUT_PAIRS, background_clients
+    ):
+        throughput = None
+
+        try:
+            output, error_output = client.communicate(timeout=20)
+
+            if client.returncode != 0:
+                raise RuntimeError(error_output.strip() or
+                                   f"iperf3 exited with code {client.returncode}")
+
+            result = json.loads(output)
+            end = result.get("end", {})
+
+            # Prefer receiver-side measurements.
+            summary = (
+                end.get("sum_received")
+                or end.get("sum")
+                or end.get("sum_sent")
+            )
+
+            if not summary or "bits_per_second" not in summary:
+                raise ValueError("No throughput result found in iperf3 JSON")
+
+            throughput = round(
+                float(summary["bits_per_second"]) / 1_000_000,
+                3,
+            )
+
+            print(
+                f"Background throughput {source_name} -> "
+                f"{destination_name}: {throughput} Mbps",
+                flush=True,
+            )
+
+        except Exception as error:
+            print(
+                f"Background throughput failed for "
+                f"{source_name}->{destination_name}: {error}",
+                flush=True,
+            )
+
         rows.append(
             make_row(
                 entity_type="path",
@@ -768,6 +841,7 @@ def collect_metrics(
     fault_type="",
     experiment_id=None,
     traffic_condition=None,
+    background_clients = None,
 ):
 
     if traffic_condition is None:
@@ -882,12 +956,12 @@ def collect_metrics(
                     min(INTERVAL, remaining)
                     )
         
-            if traffic_condition in ("tcp", "udp"):
+        if traffic_condition in ("tcp", "udp"):
 
-                print("\nStarting throughput measurements...")
+                print("\nCollecting background throughput measurements...")
 
-                throughput_rows = collect_throughput_metrics(
-                    net,
+                throughput_rows = collect_background_throughput_metrics(
+                    background_clients or [],
                     experiment_id,
                     mode,
                     fault_type,

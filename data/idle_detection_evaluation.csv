@@ -1,0 +1,6 @@
+traffic_condition,result_type,evaluation_level,category,items_tested,items_flagged,rate_percent
+idle,healthy_false_positive_rate,session,healthy,4,4,100.0
+idle,healthy_false_positive_rate,measurement,healthy,576,32,5.56
+idle,fault_detection_coverage,session,high_latency,5,5,100.0
+idle,fault_detection_coverage,session,inter_switch_link_failure,6,6,100.0
+idle,fault_detection_coverage,session,packet_loss,5,5,100.0
