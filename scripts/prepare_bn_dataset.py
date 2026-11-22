@@ -7,26 +7,22 @@ THRESHOLD_FILE = "data/thresholds.csv"
 EXPERIMENT_FILE = "data/experiments.csv"
 LOG_FILE = "logs/experiments_log.csv"
 
+# Initial project version: idle traffic only.
 BASELINE_FILES = {
     "idle": "data/baseline.csv",
-    "tcp": "data/loaded_baseline.csv",
 }
 
 OUTPUT_FILE = "data/bn_dataset.csv"
 
-# Only faults for which we currently have reliable symptoms.
 FAULTS = {
     "high_latency",
     "packet_loss",
     "inter_switch_link_failure",
 }
 
-# A symptom must occur in at least this proportion
-# of valid measurements on an individual path/interface.
 ABNORMAL_RATIO = 0.50
 
-# Require enough measurements to avoid classifying
-# a session based on a single observation.
+# Require at least 3 valid measurements.
 MIN_VALID_MEASUREMENTS = 2
 
 
@@ -45,8 +41,14 @@ def load_thresholds():
 
     with open(THRESHOLD_FILE, newline="") as file:
         for row in csv.DictReader(file):
+
+            condition = row["traffic_condition"].strip().lower()
+
+            if condition != "idle":
+                continue
+
             key = (
-                row["traffic_condition"].strip().lower(),
+                condition,
                 row["entity_type"].strip(),
                 row["entity_name"].strip(),
                 row["metric_name"].strip(),
@@ -65,42 +67,58 @@ def load_sessions(filename, default_condition=None):
 
     with open(filename, newline="") as file:
         for row in csv.DictReader(file):
-            experiment_id = row["experiment_id"].strip()
+
+            experiment_id = (
+                row.get("experiment_id") or ""
+            ).strip()
 
             if not experiment_id:
                 continue
 
-            condition = row.get("traffic_condition", "")
-            condition = condition.strip().lower()
+            condition = (
+                row.get("traffic_condition") or ""
+            ).strip().lower()
 
             if not condition:
                 condition = default_condition
 
             row["_condition"] = condition
+
             sessions[experiment_id].append(row)
 
     return sessions
 
 
 def load_valid_faults():
+    """
+    Read completed experiments from the experiment log.
+
+    The experiment log does not contain traffic_condition.
+    That information is obtained later from experiments.csv.
+    """
+
     completed = {}
 
     with open(LOG_FILE, newline="") as file:
         for row in csv.DictReader(file):
 
-            if row["status"].strip().lower() != "completed":
+            if (
+                row.get("status") or ""
+            ).strip().lower() != "completed":
                 continue
 
-            fault = normalize_fault(row["fault_type"])
-            condition = row["traffic_condition"].strip().lower()
+            experiment_id = (
+                row.get("experiment_id") or ""
+            ).strip()
 
-            if fault not in FAULTS:
+            fault = normalize_fault(
+                row.get("fault_type") or ""
+            )
+
+            if not experiment_id or fault not in FAULTS:
                 continue
 
-            if condition not in {"idle", "tcp"}:
-                continue
-
-            completed[row["experiment_id"]] = (fault, condition)
+            completed[experiment_id] = fault
 
     return completed
 
@@ -121,18 +139,23 @@ def group_by_entity(rows, metric_names):
     groups = defaultdict(list)
 
     for row in rows:
-        if row["metric_name"] not in metric_names:
+
+        if row.get("metric_name", "").strip() not in metric_names:
             continue
 
-        entity = row["entity_name"].strip()
+        entity = (
+            row.get("entity_name") or ""
+        ).strip()
 
         if not entity:
-            entity = row["interface"].strip()
+            entity = (
+                row.get("interface") or ""
+            ).strip()
 
         if not entity:
             continue
 
-        value = parse_numeric(row["metric_value"])
+        value = parse_numeric(row.get("metric_value"))
 
         if value is not None:
             groups[entity].append((row, value))
@@ -142,10 +165,10 @@ def group_by_entity(rows, metric_names):
 
 def persistent_symptom(groups, comparison_function):
     """
-    Return yes if at least one entity has a persistent symptom.
-    Return no if valid measurements exist but no entity meets
-    the persistence requirement.
-    Return unknown if there is insufficient data.
+    Return:
+      yes     - persistent abnormal behaviour found
+      no      - sufficient measurements, no persistent symptom
+      unknown - insufficient measurements
     """
 
     valid_entities = 0
@@ -199,10 +222,11 @@ def threshold_symptom(rows, thresholds, metric_name):
 
         return False
 
-    # Only evaluate entities for which threshold information exists.
+    # Only include measurements with matching thresholds.
     valid_groups = {}
 
     for entity, measurements in groups.items():
+
         eligible = [
             (row, value)
             for row, value in measurements
@@ -222,7 +246,10 @@ def threshold_symptom(rows, thresholds, metric_name):
 
 def path_unreachable(rows):
 
-    groups = group_by_entity(rows, {"path_reachability"})
+    groups = group_by_entity(
+        rows,
+        {"path_reachability"}
+    )
 
     return persistent_symptom(
         groups,
@@ -230,8 +257,8 @@ def path_unreachable(rows):
     )
 
 
-
 def port_down(rows):
+
     admin_groups = group_by_entity(
         rows,
         {"admin_status"}
@@ -260,6 +287,49 @@ def port_down(rows):
 
     return "unknown"
 
+def inter_switch_link_down(rows):
+
+    inter_switch_ports = {
+        "Switch1:Switch1-eth3",
+        "Switch2:Switch2-eth1",
+    }
+
+    port_status = {}
+
+    for port in inter_switch_ports:
+
+        values = []
+
+        for row in rows:
+
+            if (
+                row.get("entity_name", "").strip() == port
+                and row.get("metric_name", "").strip() == "admin_status"
+            ):
+                value = parse_numeric(row.get("metric_value"))
+
+                if value is not None:
+                    values.append(value)
+
+        if len(values) < MIN_VALID_MEASUREMENTS:
+            port_status[port] = "unknown"
+            continue
+
+        down_count = sum(value <= 0 for value in values)
+        down_ratio = down_count / len(values)
+
+        if down_ratio >= ABNORMAL_RATIO:
+            port_status[port] = "yes"
+        else:
+            port_status[port] = "no"
+
+    if "yes" in port_status.values():
+        return "yes"
+
+    if all(status == "no" for status in port_status.values()):
+        return "no"
+
+    return "unknown"
 
 def make_record(experiment_id, condition, fault, rows, thresholds):
 
@@ -280,9 +350,8 @@ def make_record(experiment_id, condition, fault, rows, thresholds):
         ),
 
         "path_unreachable": path_unreachable(rows),
-
-        "port_down": port_down(rows),
-
+        "path_unreachable": path_unreachable(rows),
+        "inter_switch_link_down": inter_switch_link_down(rows),
         "fault_type": fault,
     }
 
@@ -296,11 +365,14 @@ def save_dataset(dataset):
         "high_jitter",
         "high_packet_loss",
         "path_unreachable",
-        "port_down",
+        "inter_switch_link_down",
         "fault_type",
     ]
 
-    Path(OUTPUT_FILE).parent.mkdir(parents=True, exist_ok=True)
+    Path(OUTPUT_FILE).parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
 
     with open(OUTPUT_FILE, "w", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=fields)
@@ -310,16 +382,18 @@ def save_dataset(dataset):
 
 def main():
 
-    print("Loading thresholds...")
+    print("Loading idle thresholds...")
     thresholds = load_thresholds()
+
+    print("Threshold groups loaded:", len(thresholds))
 
     dataset = []
 
-    # -------------------------------------------------
-    # 1. Healthy baseline sessions
-    # -------------------------------------------------
+    # =============================================
+    # 1. Healthy idle baseline sessions
+    # =============================================
 
-    print("Processing healthy baseline sessions...")
+    print("\nProcessing healthy idle baseline sessions...")
 
     for condition, filename in BASELINE_FILES.items():
 
@@ -341,58 +415,81 @@ def main():
                 )
             )
 
-    # -------------------------------------------------
-    # 2. Completed fault experiments
-    # -------------------------------------------------
+        print(f"  {condition}: {len(sessions)} sessions")
 
-    print("Processing completed fault experiments...")
+    # =============================================
+    # 2. Completed idle fault experiments
+    # =============================================
+
+    print("\nProcessing completed idle fault experiments...")
 
     fault_sessions = load_sessions(EXPERIMENT_FILE)
     valid_faults = load_valid_faults()
 
-    for experiment_id, (fault, condition) in valid_faults.items():
+    included_fault_sessions = 0
+    skipped_fault_sessions = 0
+
+    for experiment_id, fault in valid_faults.items():
 
         rows = fault_sessions.get(experiment_id)
 
         if not rows:
+            skipped_fault_sessions += 1
+            continue
+
+        # Get traffic condition from experiments.csv,
+        # not from experiments_log.csv.
+        idle_rows = [
+            row for row in rows
+            if row["_condition"] == "idle"
+        ]
+
+        if not idle_rows:
+            skipped_fault_sessions += 1
             continue
 
         dataset.append(
             make_record(
                 experiment_id,
-                condition,
+                "idle",
                 fault,
-                rows,
+                idle_rows,
                 thresholds,
             )
         )
 
-    # -------------------------------------------------
+        included_fault_sessions += 1
+
+    print("  Included idle fault sessions:", included_fault_sessions)
+    print("  Skipped fault sessions:", skipped_fault_sessions)
+
+    # =============================================
     # 3. Save dataset
-    # -------------------------------------------------
+    # =============================================
 
     if not dataset:
-        print("No records generated. Check the input files.")
+        print("\nNo records generated. Check the input files.")
         return
 
     save_dataset(dataset)
 
-    # -------------------------------------------------
-    # 4. Display dataset summary
-    # -------------------------------------------------
+    # =============================================
+    # 4. Dataset summary
+    # =============================================
 
     print("\n===== BAYESIAN NETWORK DATASET =====")
+
     print("Total sessions:", len(dataset))
 
-    counts = defaultdict(int)
+    fault_counts = defaultdict(int)
 
     for row in dataset:
-        counts[row["fault_type"]] += 1
+        fault_counts[row["fault_type"]] += 1
 
     print("\nFault distribution:")
 
-    for fault, count in sorted(counts.items()):
-        print(f"{fault}: {count}")
+    for fault, count in sorted(fault_counts.items()):
+        print(f"  {fault}: {count}")
 
     print("\nSymptom distribution:")
 
@@ -401,9 +498,9 @@ def main():
         "high_jitter",
         "high_packet_loss",
         "path_unreachable",
-        "port_down",
+        "inter_switch_link_down"
     ]
-
+    
     for symptom in symptom_names:
 
         counts = defaultdict(int)

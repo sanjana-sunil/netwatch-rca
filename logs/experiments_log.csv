@@ -89,3 +89,6 @@ experiment_id,fault_type,target,traffic_condition,start_time,end_time,duration_s
 20261119_104656_f8ca56,packet_loss,Switch1-eth3 and Switch2-eth1,idle,2026-11-19T10:46:56,2026-11-19T10:47:29,33.0,completed,10 percent packet loss; traffic_condition=idle
 20261119_105257_b6bedf,packet_loss,Switch1-eth3 and Switch2-eth1,idle,2026-11-19T10:52:57,2026-11-19T10:53:36,39.0,completed,10 percent packet loss; traffic_condition=idle
 20261119_122444_0c24de,inter_switch_link_failure,Switch1-Switch2,idle,2026-11-19T12:24:44,2026-11-19T12:25:18,34.0,interrupted,Disable the inter-switch link; traffic_condition=idle
+20261122_035611_14234d,high_latency,Switch1-eth3 and Switch2-eth1,idle,2026-11-22T03:56:11,2026-11-22T03:57:56,105.0,completed,100 ms delay with 10 ms jitter; traffic_condition=idle
+20261122_035840_2b87d9,packet_loss,Switch1-eth3 and Switch2-eth1,idle,2026-11-22T03:58:40,2026-11-22T04:00:33,113.0,completed,10 percent packet loss; traffic_condition=idle
+20261122_040541_d5e306,inter_switch_link_failure,Switch1-Switch2,idle,2026-11-22T04:05:41,2026-11-22T04:06:41,60.0,completed,Disable the inter-switch link; traffic_condition=idle
