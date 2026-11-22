@@ -1,0 +1,31 @@
+experiment_id,actual_fault,predicted_fault,bn_confidence,rule_based_root_cause,supporting_evidence
+20261113_055829_093fec,normal,normal,1.0,normal,No abnormal symptoms confirmed
+20261113_060317_de45a2,normal,normal,1.0,normal,No abnormal symptoms confirmed
+20261113_060708_b31bdc,normal,normal,1.0,normal,No abnormal symptoms confirmed
+20261113_061109_e5d7ba,normal,normal,1.0,normal,No abnormal symptoms confirmed
+20261113_064434_ba91b6,normal,normal,1.0,normal,No abnormal symptoms confirmed
+20261113_065147_c03298,normal,normal,1.0,normal,No abnormal symptoms confirmed
+20261113_070047_7574cd,normal,normal,1.0,normal,No abnormal symptoms confirmed
+20261113_120246_7b121f,normal,normal,1.0,normal,No abnormal symptoms confirmed
+20261113_124434_853171,normal,normal,1.0,normal,No abnormal symptoms confirmed
+20261113_131426_c316f5,normal,normal,1.0,normal,No abnormal symptoms confirmed
+20261113_144702_f4e9c2,normal,normal,1.0,normal,No abnormal symptoms confirmed
+20261113_145923_b7f349,normal,normal,1.0,normal,No abnormal symptoms confirmed
+20261119_055138_ccdeef,inter_switch_link_failure,inter_switch_link_failure,1.0,inter_switch_link_failure,Inter-switch port is reported down; Network path is unreachable; Packet loss exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261119_055542_41445b,high_latency,high_latency,1.0,high_latency,Average RTT exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261119_055924_68e204,packet_loss,packet_loss,1.0,packet_loss,Packet loss exceeds the healthy baseline threshold; Average RTT exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261119_095051_d4be1b,high_latency,high_latency,1.0,high_latency,Average RTT exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261119_095124_4bd041,inter_switch_link_failure,inter_switch_link_failure,1.0,inter_switch_link_failure,Inter-switch port is reported down; Network path is unreachable; Packet loss exceeds the healthy baseline threshold; Average RTT exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261119_095212_ec12b4,packet_loss,packet_loss,1.0,packet_loss,Network path is unreachable; Packet loss exceeds the healthy baseline threshold; Average RTT exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261119_100234_ba0998,high_latency,high_latency,1.0,high_latency,Average RTT exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261119_100530_eecaa2,inter_switch_link_failure,inter_switch_link_failure,1.0,inter_switch_link_failure,Inter-switch port is reported down; Network path is unreachable; Packet loss exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261119_101644_ec1295,packet_loss,packet_loss,1.0,packet_loss,Packet loss exceeds the healthy baseline threshold; Average RTT exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261119_102734_48abff,inter_switch_link_failure,inter_switch_link_failure,1.0,inter_switch_link_failure,Inter-switch port is reported down; Network path is unreachable; Packet loss exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261119_102914_c80cbb,inter_switch_link_failure,inter_switch_link_failure,1.0,inter_switch_link_failure,Inter-switch port is reported down; Network path is unreachable; Packet loss exceeds the healthy baseline threshold; Average RTT exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261119_103431_ab60a2,high_latency,high_latency,1.0,high_latency,Average RTT exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261119_104042_cb9cc7,high_latency,high_latency,1.0,high_latency,Average RTT exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261119_104656_f8ca56,packet_loss,packet_loss,1.0,packet_loss,Network path is unreachable; Packet loss exceeds the healthy baseline threshold; Average RTT exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261119_105257_b6bedf,packet_loss,packet_loss,1.0,packet_loss,Network path is unreachable; Packet loss exceeds the healthy baseline threshold; Average RTT exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261122_035611_14234d,high_latency,high_latency,1.0,high_latency,Average RTT exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261122_035840_2b87d9,packet_loss,packet_loss,1.0,packet_loss,Packet loss exceeds the healthy baseline threshold; Average RTT exceeds the healthy baseline threshold; Jitter exceeds the healthy baseline threshold
+20261122_040541_d5e306,inter_switch_link_failure,inter_switch_link_failure,1.0,inter_switch_link_failure,Inter-switch port is reported down

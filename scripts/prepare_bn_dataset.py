@@ -287,6 +287,7 @@ def port_down(rows):
 
     return "unknown"
 
+
 def inter_switch_link_down(rows):
 
     inter_switch_ports = {
@@ -298,30 +299,37 @@ def inter_switch_link_down(rows):
 
     for port in inter_switch_ports:
 
-        values = []
+        status_values = []
 
         for row in rows:
 
-            if (
-                row.get("entity_name", "").strip() == port
-                and row.get("metric_name", "").strip() == "admin_status"
-            ):
-                value = parse_numeric(row.get("metric_value"))
+            if row.get("entity_name", "").strip() != port:
+                continue
 
-                if value is not None:
-                    values.append(value)
+            metric = row.get("metric_name", "").strip()
+            value = (row.get("metric_value") or "").strip().lower()
 
-        if len(values) < MIN_VALID_MEASUREMENTS:
+            # One valid status observation is sufficient.
+            if metric == "admin_status":
+                numeric_value = parse_numeric(value)
+
+                if numeric_value is not None:
+                    status_values.append(numeric_value <= 0)
+
+            elif metric == "oper_status":
+                if value in {"down", "failed", "no"}:
+                    status_values.append(True)
+                elif value in {"up", "running", "yes"}:
+                    status_values.append(False)
+
+        if not status_values:
             port_status[port] = "unknown"
             continue
 
-        down_count = sum(value <= 0 for value in values)
-        down_ratio = down_count / len(values)
-
-        if down_ratio >= ABNORMAL_RATIO:
-            port_status[port] = "yes"
-        else:
-            port_status[port] = "no"
+        # Any explicit down observation indicates a failed port.
+        port_status[port] = (
+            "yes" if any(status_values) else "no"
+        )
 
     if "yes" in port_status.values():
         return "yes"
@@ -349,7 +357,6 @@ def make_record(experiment_id, condition, fault, rows, thresholds):
             rows, thresholds, "packet_loss_pct"
         ),
 
-        "path_unreachable": path_unreachable(rows),
         "path_unreachable": path_unreachable(rows),
         "inter_switch_link_down": inter_switch_link_down(rows),
         "fault_type": fault,

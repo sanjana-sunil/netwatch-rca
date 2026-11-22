@@ -28,4 +28,4 @@ experiment_id,traffic_condition,high_rtt,high_jitter,high_packet_loss,path_unrea
 20261119_105257_b6bedf,idle,yes,yes,yes,yes,no,packet_loss
 20261122_035611_14234d,idle,yes,yes,no,no,no,high_latency
 20261122_035840_2b87d9,idle,yes,yes,yes,no,no,packet_loss
-20261122_040541_d5e306,idle,unknown,unknown,unknown,unknown,unknown,inter_switch_link_failure
+20261122_040541_d5e306,idle,unknown,unknown,unknown,unknown,yes,inter_switch_link_failure

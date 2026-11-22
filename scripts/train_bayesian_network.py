@@ -137,5 +137,7 @@ def main():
         print("\nAbstentions by actual fault type:")
         print(pd.Series(abstentions).value_counts().to_string())
 
+
 if __name__ == "__main__":
     main()
+
